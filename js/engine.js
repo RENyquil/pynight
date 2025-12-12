@@ -179,7 +179,7 @@ async function runCode() {
     // ----------------------
     // Compare result
     // ----------------------
-    if (!missingRequired && normalizedResult === normalizedExpected) {
+    if (!missingRequired && !violatedForbidden && normalizedResult === normalizedExpected) {
       outputEl.value = `✅ SUCCESS\n${window.__FLAG__}`;
     } else {
       // Show result for debugging, unless it's a successful flag
@@ -195,3 +195,4 @@ async function runCode() {
 // Initialize
 // ----------------------
 loadChallenge();
+
