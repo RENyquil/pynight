@@ -34,7 +34,9 @@
     "test_code": "output = py_night()\noutput",
     "expected": "akagi",
 	"required_terms": [],
+	"forbidden_terms": ["akagi", "Akagi"],
     "flag": "PY_NIGHT{RED_CASTLE}"
   }
 ]
+
 
