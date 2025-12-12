@@ -135,16 +135,6 @@ async function runCode() {
     }
 
     // ----------------------
-    // Run user code
-    // ----------------------
-    await pyodide.runPythonAsync(userCode);
-
-    // ----------------------
-    // Run test code and capture output
-    // ----------------------
-    let result = await pyodide.runPythonAsync(window.__TEST_CODE__ || "output");
-
-    // ----------------------
     // Check forbidden terms
     // ----------------------
     const userCodeLower = userCode.toLowerCase();
@@ -169,6 +159,16 @@ async function runCode() {
       }
     }
 
+    // ----------------------
+    // Run user code
+    // ----------------------
+    await pyodide.runPythonAsync(userCode);
+
+    // ----------------------
+    // Run test code and capture output
+    // ----------------------
+    let result = await pyodide.runPythonAsync(window.__TEST_CODE__ || "output");
+    
     // ----------------------
     // Normalize line endings for comparison
     // ----------------------
@@ -195,4 +195,5 @@ async function runCode() {
 // Initialize
 // ----------------------
 loadChallenge();
+
 
