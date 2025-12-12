@@ -1,0 +1,39 @@
+[
+  {
+    "id": "diehard_001",
+    "template": "diehard",
+    "challenge_description": "Remove all Christmas-related words from the film transcript.",
+    "challenge_stamp": "Nakatomi Corporation",
+    "tasks": [
+      "The entire film transcript is stored in film_script.",
+      "A list of festive words and phrases appears in xmas_words.",
+      "Remove all festive words from the transcript.",
+      "If correct, the passphrase will be shown."
+    ],
+    "example": "xmas_words = ['Christmas', 'Xmas', 'Ebenezer Scrooge', 'Santa', 'Rudolph', 'Reindeer', 'Snow', 'Ode to Joy', 'Jingle Bells']",
+    "starter_code": "def py_night(film_script):\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return film_script",
+    "setup_code": "film_script = \"assets/diehard_transcript.txt\"\nxmas_words = ['Christmas', 'Xmas', 'Ebenezer Scrooge', 'Santa', 'Rudolph', 'Reindeer', 'Snow', 'Ode to Joy', 'Jingle Bells']",
+    "test_code": "output = py_night(film_script)\noutput",
+    "expected": "assets/diehard_grinch_transcript.txt",
+	"required_terms": [],
+    "flag": "FLAG{YIPPIE_KI_YAY}"
+  },
+  {
+    "id": "diehard_002",
+    "template": "diehard",
+    "challenge_description": "Break into the Nakatomi Vault, first lock: Create a password-input terminal!",
+    "challenge_stamp": "Nakatomi Corporation",
+    "tasks": [
+      "A notorious scene in Die Hard is the scene where Theo is cracking the password to the Nakatomi Vault",
+      "Your challenge is simple, use python to enable user-input of a password, and enter the Nakatomi Vault Password",
+      "Feel free to google what that password is... but real fans already know it. ;P"
+    ],
+    "example": "Fart",
+    "starter_code": "def py_night():\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return password",
+    "setup_code": "",
+    "test_code": "output = py_night()\noutput",
+    "expected": "akagi",
+	"required_terms": [],
+    "flag": "FLAG{RED_CASTLE}"
+  }
+]

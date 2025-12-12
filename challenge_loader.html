@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Challenge Loader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ✅ BASE LAYOUT CSS -->
+  <!-- Because this file is now in ROOT, we REMOVE the leading slash -->
+  <link rel="stylesheet" href="templates/base.css">
+
+  <!-- ✅ THEME CSS (SET DYNAMICALLY BY engine.js) -->
+  <link id="theme-css" rel="stylesheet" href="">
+</head>
+<body>
+  <!-- SNOW ANIMATION LAYER -->
+  <div id="animation-container"></div>
+<header>
+  <img class="fin" id="theme-image" alt="Theme Image">
+  <div>
+    <div class="title">
+      <span id="theme-main"></span> — <span id="theme-sub"></span>
+    </div>
+    <div class="sub" id="theme-tagline"></div>
+  </div>
+</header>
+
+<div class="card challenge">
+  <strong>Challenge:</strong>
+  <span id="challenge-description"></span>
+  <div class="stamp" id="challenge-stamp"></div>
+</div>
+
+<div class="card task">
+  <strong>Task:</strong>
+  <ol id="challenge-tasks"></ol>
+  <pre id="challenge-example"></pre>
+</div>
+
+<textarea id="editor"></textarea>
+
+<button onclick="runCode()">Run Script!</button>
+
+<textarea id="output"></textarea>
+
+<!-- ✅ ENGINE SCRIPT -->
+<!-- Again, NO leading slash -->
+<script src="js/pyodide/pyodide.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/animation.js"></script>
+
+</body>
+</html>
