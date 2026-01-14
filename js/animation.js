@@ -51,69 +51,54 @@ function startMatrixRain() {
     const column = document.createElement("div");
     column.style.position = "absolute";
     column.style.left = `${xPosition}px`;
-    column.style.top = `-${Math.random() * 50}px`; 
-    column.style.display = "flex";
-    column.style.flexDirection = "column";
+    container.appendChild(column);
 
-    const charHeight = 18; 
+    const charHeight = 18;
     const columnHeight = window.innerHeight + 200;
-    const numChars = Math.ceil(columnHeight / charHeight);
+    const trailLength = Math.floor(Math.random() * 15 + 15);
+    const columnSpeed = 1 + Math.random() * 3; // pixels per frame
+    let headY = -Math.random() * 50; // start above screen
 
+    // Create spans for visible trail
     const spans = [];
-
-    for (let i = 0; i < numChars; i++) {
+    for (let i = 0; i < trailLength; i++) {
       const span = document.createElement("span");
       span.classList.add("rain");
       span.textContent = randomChar();
-      span.style.display = "block";
-      span.style.height = `${charHeight}px`;
+      span.style.position = "absolute";
+      span.style.top = `${-i * charHeight}px`; // stack vertically upward
+      span.style.fontSize = `${charHeight}px`;
+      span.style.fontFamily = '"Courier New", monospace';
 
-      if (Math.random() < 0.9) {
-        span.style.transform = "scaleX(-1)";
-      }
-
+      if (Math.random() < 0.9) span.style.transform = "scaleX(-1)";
       column.appendChild(span);
       spans.push(span);
     }
 
-    container.appendChild(column);
-
-    // ----------------------
-    // Per-column speed variation (consistent)
-    // ----------------------
-    const columnSpeed = 1 + Math.random() * 3; // pixels per frame
-    let columnOffset = -Math.random() * 50; // start slightly above
-    let trailLength = Math.floor(Math.random() * 10 + 10);
-
     function updateColumn() {
-      columnOffset += columnSpeed; // consistent per column
-      column.style.top = `${columnOffset}px`;
+      headY += columnSpeed;
 
-      // dynamic gradient trail
-      for (let i = 0; i < spans.length; i++) {
-        const relativeIndex = i - Math.floor(columnOffset / charHeight);
-        if (relativeIndex === 0) {
-          spans[i].style.color = "#ffffff"; // head white
-        } else if (relativeIndex > 0 && relativeIndex < trailLength) {
-          const brightness = 1 - relativeIndex / trailLength;
-          const greenValue = Math.floor(255 * brightness);
-          spans[i].style.color = `rgb(0, ${greenValue}, 0)`;
+      // move each span relative to head
+      spans.forEach((span, idx) => {
+        const y = headY - idx * charHeight;
+        span.style.top = `${y}px`;
+
+        // update color: head white, trail fading smoothly
+        if (idx === 0) {
+          span.style.color = "#ffffff"; // head white
         } else {
-          spans[i].style.color = "rgb(0,0,0)"; // invisible
+          const t = idx / trailLength;
+          const green = Math.floor(255 * Math.pow(1 - t, 2));
+          span.style.color = `rgb(0, ${green}, 0)`;
         }
-      }
 
-      // random character updates (~5%)
-      spans.forEach(span => {
-        if (Math.random() < 0.05) {
-          span.textContent = randomChar();
-        }
+        // occasional character change (~5%)
+        if (Math.random() < 0.05) span.textContent = randomChar();
       });
 
-      // occasionally end the column trail and restart
-      if (columnOffset > window.innerHeight + Math.random() * 200) {
-        columnOffset = -Math.random() * 50;
-        trailLength = Math.floor(Math.random() * 10 + 10);
+      // restart column if it goes off screen
+      if (headY - trailLength * charHeight > window.innerHeight) {
+        headY = -Math.random() * 50;
       }
 
       requestAnimationFrame(updateColumn);
@@ -122,10 +107,8 @@ function startMatrixRain() {
     requestAnimationFrame(updateColumn);
   }
 
-  // ----------------------
-  // Fill screen with wider columns
-  // ----------------------
-  const columnWidth = 24; 
+  // wider columns, fewer total
+  const columnWidth = 24;
   for (let x = 0; x < window.innerWidth; x += columnWidth) {
     createRainColumn(x);
   }
@@ -152,6 +135,7 @@ function startMatrixRain() {
   // Expose for manual control if needed
   window.startAnimation = startAnimation;
 });
+
 
 
 
