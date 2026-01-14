@@ -1,0 +1,47 @@
+:root {
+  /* Background gradient colors */
+  --radial-highlight: #0a2f0a;        /* subtle green glow */
+  --linear-gradient-top: #000000;     /* pure black */
+  --linear-gradient-bottom: #020b02;  /* barely-green black */
+  --theme-sub-color: #00ff66;         /* bright Matrix green */
+
+  /* Header image and text */
+  --theme-image: url("../assets/matrix_rain.png"); /* optional */
+  --theme-main: "THE MATRIX";
+  --theme-sub: "Free your Mind... and Code Python.";
+  --theme-tagline: "\"Unfortunately, no one can be told what the Flags are, you have to find them yourself.\"";
+
+  /* Highlight accents */
+  --highlight-primary: #00ff41;       /* classic Matrix green */
+  --highlight-secondary: #7cffb2;     /* softer glow green */
+}
+/* MATRIX DIGITAL RAIN */
+#animation-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1; /* behind everything */
+}
+
+.rain {
+  position: absolute;
+  top: -100px;
+  color: #00ff41;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0.8;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);
+  animation-name: rain-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
