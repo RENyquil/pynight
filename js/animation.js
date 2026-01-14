@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 // ----------------------
-// MATRIX DIGITAL RAIN (optimized, 5% per-frame updates)
+// MATRIX DIGITAL RAIN
 // ----------------------
 function startMatrixRain() {
   clearContainer(); // remove previous animations
@@ -54,26 +54,29 @@ function startMatrixRain() {
     const column = document.createElement("div");
     column.style.position = "absolute";
     column.style.left = `${xPosition}px`;
+    column.style.top = `${-Math.random() * 500}px`; // start offscreen
+    column.style.display = "flex";
+    column.style.flexDirection = "column"; // vertical stacking
 
-    const columnSpeed = 3 + Math.random() * 2; // 3–5s per fall
-    const numChars = 30;
-    const charHeight = 14;
+    const columnSpeed = 3 + Math.random() * 2; // fall duration 3–5s
+    const numChars = 40; // taller columns for larger font
+    const charHeight = 18; // adjust line height for larger font
 
     const spans = [];
 
-    // Create each character span in the column
     for (let i = 0; i < numChars; i++) {
       const span = document.createElement("span");
       span.classList.add("rain");
       span.textContent = randomChar();
-      span.style.top = `${i * charHeight}px`;
+      span.style.display = "block"; // ensures vertical stacking
+      span.style.height = `${charHeight}px`;
 
-      // horizontal flip with 90% chance
+      // horizontal flip with 90% probability
       if (Math.random() < 0.9) {
         span.style.transform = "scaleX(-1)";
       }
 
-      // staggered animation start for natural effect
+      // staggered animation start
       span.style.animationDelay = `${Math.random() * 5}s`;
       span.style.animationDuration = `${columnSpeed}s`;
       span.style.animationName = "matrix-rain";
@@ -85,12 +88,11 @@ function startMatrixRain() {
     container.appendChild(column);
 
     // ----------------------
-    // Per-column animation update using requestAnimationFrame
+    // Per-column animation loop
     // ----------------------
     function updateColumn() {
       spans.forEach(span => {
-        // 5% chance per frame to update a character
-        if (Math.random() < 0.05) {
+        if (Math.random() < 0.05) { // ~5% chance to change per frame
           span.textContent = randomChar();
         }
       });
@@ -100,9 +102,9 @@ function startMatrixRain() {
   }
 
   // ----------------------
-  // Fill screen with columns
+  // Fill screen with wider columns, fewer total
   // ----------------------
-  const columnWidth = 14; // matches font size
+  const columnWidth = 20; // wider columns
   for (let x = 0; x < window.innerWidth; x += columnWidth) {
     createRainColumn(x);
   }
@@ -129,5 +131,6 @@ function startMatrixRain() {
   // Expose for manual control if needed
   window.startAnimation = startAnimation;
 });
+
 
 
