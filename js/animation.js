@@ -85,7 +85,7 @@ function startMatrixRain() {
 function startAnimation(type) {
   if (type === "snow") {
     startSnowflakes();
-  } else if (type === "matrix") {
+  } else if (type === "matrix-rain") {
     startMatrixRain();
   }
 }
@@ -93,3 +93,4 @@ function startAnimation(type) {
 // Example usage:
 // startAnimation("snow");
 // startAnimation("matrix");
+
