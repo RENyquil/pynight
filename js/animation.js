@@ -95,8 +95,8 @@ function startMatrixRain() {
           span.style.color = `rgb(0, ${green}, 0)`;
         }
 
-        // occasional character change ~5%
-        if (Math.random() < 0.05) span.textContent = randomChar();
+        // occasional character change ~2%
+        if (Math.random() < 0.02) span.textContent = randomChar();
       });
 
       // restart column if offscreen
@@ -137,6 +137,7 @@ function startMatrixRain() {
   // Expose for manual control if needed
   window.startAnimation = startAnimation;
 });
+
 
 
 
