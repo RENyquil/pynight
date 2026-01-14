@@ -38,11 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-// ----------------------
-// MATRIX DIGITAL RAIN (full viewport coverage)
-// ----------------------
 function startMatrixRain() {
-  clearContainer(); // remove previous animations
+  clearContainer();
 
   const letters = "ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ0123456789日Z:・.=*+-<>¦|";
 
@@ -54,15 +51,12 @@ function startMatrixRain() {
     const column = document.createElement("div");
     column.style.position = "absolute";
     column.style.left = `${xPosition}px`;
-    column.style.top = `-${Math.random() * 50}px`; // small offset
+    column.style.top = `-${Math.random() * 50}px`; 
     column.style.display = "flex";
     column.style.flexDirection = "column";
 
-    const columnSpeed = 3 + Math.random() * 2; // fall duration 3–5s
-    const charHeight = 20; // height of each character
-
-    // dynamically calculate number of characters to fully cover screen + buffer
-    const columnHeight = window.innerHeight + 200; // extra buffer
+    const charHeight = 18; 
+    const columnHeight = window.innerHeight + 200;
     const numChars = Math.ceil(columnHeight / charHeight);
 
     const spans = [];
@@ -74,15 +68,10 @@ function startMatrixRain() {
       span.style.display = "block";
       span.style.height = `${charHeight}px`;
 
-      // horizontal flip with 90% probability
+      // horizontal flip ~90% of time
       if (Math.random() < 0.9) {
         span.style.transform = "scaleX(-1)";
       }
-
-      // staggered animation start
-      span.style.animationDelay = `${Math.random() * 5}s`;
-      span.style.animationDuration = `${columnSpeed}s`;
-      span.style.animationName = "matrix-rain";
 
       column.appendChild(span);
       spans.push(span);
@@ -90,20 +79,54 @@ function startMatrixRain() {
 
     container.appendChild(column);
 
-    // per-column character updates (~2% per frame)
+    // ----------------------
+    // Column speed (consistent per column)
+    // ----------------------
+    const columnSpeed = 1 + Math.random() * 3; 
+    let columnOffset = -Math.random() * 50;
+    let trailLength = Math.floor(Math.random() * 15 + 15); // longer trail for smoother gradient
+
     function updateColumn() {
+      columnOffset += columnSpeed; 
+      column.style.top = `${columnOffset}px`;
+
+      // dynamic gradient trail with smooth luminosity
+      for (let i = 0; i < spans.length; i++) {
+        const relativeIndex = i - Math.floor(columnOffset / charHeight);
+        if (relativeIndex === 0) {
+          spans[i].style.color = "#ffffff"; // head is bright white
+        } else if (relativeIndex > 0 && relativeIndex < trailLength) {
+          const t = relativeIndex / trailLength; // 0 → 1 along trail
+          const green = Math.floor(255 * Math.pow(1 - t, 2)); // quadratic decay for smooth fade
+          spans[i].style.color = `rgb(0, ${green}, 0)`;
+        } else {
+          spans[i].style.color = "rgb(0,0,0)"; // invisible beyond trail
+        }
+      }
+
+      // ~5% random character updates for flicker
       spans.forEach(span => {
-        if (Math.random() < 0.02) {
+        if (Math.random() < 0.05) {
           span.textContent = randomChar();
         }
       });
+
+      // occasionally end the column trail and start a new one
+      if (columnOffset > window.innerHeight + Math.random() * 200) {
+        columnOffset = -Math.random() * 50;
+        trailLength = Math.floor(Math.random() * 15 + 15); 
+      }
+
       requestAnimationFrame(updateColumn);
     }
+
     requestAnimationFrame(updateColumn);
   }
 
-  // wider columns, fewer total for performance
-  const columnWidth = 24;
+  // ----------------------
+  // Fill screen with wider columns, fewer total
+  // ----------------------
+  const columnWidth = 24; 
   for (let x = 0; x < window.innerWidth; x += columnWidth) {
     createRainColumn(x);
   }
@@ -130,6 +153,7 @@ function startMatrixRain() {
   // Expose for manual control if needed
   window.startAnimation = startAnimation;
 });
+
 
 
 
