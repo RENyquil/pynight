@@ -49,7 +49,7 @@ async function loadChallenge() {
     const res = await fetch("./templates/template_list.json");
     templates = await res.json();
   } catch {
-    console.warn("⚠️ Failed to load templates.json, falling back to unthemed");
+    console.warn("⚠️ Failed to load template_list.json, falling back to unthemed");
   }
   
   const template =
@@ -58,7 +58,7 @@ async function loadChallenge() {
       : "unthemed";
 
   document.getElementById("theme-css").href =
-    `templates/${template}.css`;
+    `./templates/${template}.css`;
 
   // ----------------------
   // Load Challenge Text
@@ -209,6 +209,7 @@ async function runCode() {
 // Initialize
 // ----------------------
 loadChallenge();
+
 
 
 
