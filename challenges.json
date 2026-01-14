@@ -1,7 +1,7 @@
 [
   {
     "id": "diehard_001",
-    "template": "diehard",
+    "template": "matrix",
     "challenge_description": "Remove all Christmas-related words from the film transcript.",
     "challenge_stamp": "Nakatomi Corporation",
     "tasks": [
@@ -57,5 +57,6 @@
   "flag": "PY_NIGHT{THEO_IS_A_LOCKSMITH}"
   }
 ]
+
 
 
