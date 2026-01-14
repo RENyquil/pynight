@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 // ----------------------
-// MATRIX DIGITAL RAIN
+// MATRIX DIGITAL RAIN (full viewport coverage)
 // ----------------------
 function startMatrixRain() {
   clearContainer(); // remove previous animations
@@ -54,13 +54,16 @@ function startMatrixRain() {
     const column = document.createElement("div");
     column.style.position = "absolute";
     column.style.left = `${xPosition}px`;
-    column.style.top = `${-Math.random() * 500}px`; // start offscreen
+    column.style.top = `-${Math.random() * 50}px`; // small offset
     column.style.display = "flex";
-    column.style.flexDirection = "column"; // vertical stacking
+    column.style.flexDirection = "column";
 
     const columnSpeed = 3 + Math.random() * 2; // fall duration 3–5s
-    const numChars = 40; // taller columns for larger font
-    const charHeight = 18; // adjust line height for larger font
+    const charHeight = 20; // height of each character
+
+    // dynamically calculate number of characters to fully cover screen + buffer
+    const columnHeight = window.innerHeight + 200; // extra buffer
+    const numChars = Math.ceil(columnHeight / charHeight);
 
     const spans = [];
 
@@ -68,7 +71,7 @@ function startMatrixRain() {
       const span = document.createElement("span");
       span.classList.add("rain");
       span.textContent = randomChar();
-      span.style.display = "block"; // ensures vertical stacking
+      span.style.display = "block";
       span.style.height = `${charHeight}px`;
 
       // horizontal flip with 90% probability
@@ -87,12 +90,10 @@ function startMatrixRain() {
 
     container.appendChild(column);
 
-    // ----------------------
-    // Per-column animation loop
-    // ----------------------
+    // per-column character updates (~2% per frame)
     function updateColumn() {
       spans.forEach(span => {
-        if (Math.random() < 0.05) { // ~5% chance to change per frame
+        if (Math.random() < 0.02) {
           span.textContent = randomChar();
         }
       });
@@ -101,10 +102,8 @@ function startMatrixRain() {
     requestAnimationFrame(updateColumn);
   }
 
-  // ----------------------
-  // Fill screen with wider columns, fewer total
-  // ----------------------
-  const columnWidth = 20; // wider columns
+  // wider columns, fewer total for performance
+  const columnWidth = 20;
   for (let x = 0; x < window.innerWidth; x += columnWidth) {
     createRainColumn(x);
   }
@@ -131,6 +130,7 @@ function startMatrixRain() {
   // Expose for manual control if needed
   window.startAnimation = startAnimation;
 });
+
 
 
 
