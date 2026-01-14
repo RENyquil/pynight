@@ -39,10 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 // ----------------------
-// MATRIX DIGITAL RAIN (optimized)
+// MATRIX DIGITAL RAIN (optimized, 5% per-frame updates)
 // ----------------------
 function startMatrixRain() {
   clearContainer(); // remove previous animations
+
   const letters = "ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ0123456789日Z:・.=*+-<>¦|";
 
   function randomChar() {
@@ -60,18 +61,19 @@ function startMatrixRain() {
 
     const spans = [];
 
+    // Create each character span in the column
     for (let i = 0; i < numChars; i++) {
       const span = document.createElement("span");
       span.classList.add("rain");
       span.textContent = randomChar();
       span.style.top = `${i * charHeight}px`;
 
-      // horizontal flip 90% of the time
+      // horizontal flip with 90% chance
       if (Math.random() < 0.9) {
         span.style.transform = "scaleX(-1)";
       }
 
-      // staggered animation start
+      // staggered animation start for natural effect
       span.style.animationDelay = `${Math.random() * 5}s`;
       span.style.animationDuration = `${columnSpeed}s`;
       span.style.animationName = "matrix-rain";
@@ -82,10 +84,13 @@ function startMatrixRain() {
 
     container.appendChild(column);
 
-    // Each column has its own update loop
+    // ----------------------
+    // Per-column animation update using requestAnimationFrame
+    // ----------------------
     function updateColumn() {
       spans.forEach(span => {
-        if (Math.random() < 0.3) { // ~30% chance to change per frame
+        // 5% chance per frame to update a character
+        if (Math.random() < 0.05) {
           span.textContent = randomChar();
         }
       });
@@ -94,12 +99,15 @@ function startMatrixRain() {
     requestAnimationFrame(updateColumn);
   }
 
-  const columnWidth = 14;
+  // ----------------------
+  // Fill screen with columns
+  // ----------------------
+  const columnWidth = 14; // matches font size
   for (let x = 0; x < window.innerWidth; x += columnWidth) {
     createRainColumn(x);
   }
 }
-
+  
   // ----------------------
   // MAIN ENTRY
   // ----------------------
@@ -121,4 +129,5 @@ function startMatrixRain() {
   // Expose for manual control if needed
   window.startAnimation = startAnimation;
 });
+
 
