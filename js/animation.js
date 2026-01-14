@@ -53,16 +53,14 @@ function startMatrixRain() {
     column.style.left = `${xPosition}px`;
     container.appendChild(column);
 
-    const baseFontSize = 20 + Math.floor(Math.random() * 3); // slightly varied font
+    const baseFontSize = 20 + Math.floor(Math.random() * 3); // larger base font for fewer columns
     const charHeight = baseFontSize;
     const columnSpeed = 1 + Math.random() * 3; // pixels per frame
-    const maxTrailLength = 30; // max number of visible characters
-    const totalSpans = 60; // total spans to recycle
+    const trailLength = Math.floor(Math.random() * 15 + 15);
     let headY = -Math.random() * 50;
 
-    // pre-create spans
     const spans = [];
-    for (let i = 0; i < totalSpans; i++) {
+    for (let i = 0; i < trailLength; i++) {
       const span = document.createElement("span");
       span.classList.add("rain");
       span.textContent = randomChar();
@@ -71,49 +69,43 @@ function startMatrixRain() {
       span.style.fontSize = `${baseFontSize}px`;
       span.style.fontFamily = '"Courier New", monospace';
       if (Math.random() < 0.9) span.style.transform = "scaleX(-1)";
-      span.style.textShadow = "0 0 8px #00ff41, 0 0 12px #00ff41, 0 0 16px #00ff41";
+      span.style.textShadow = "0 0 6px #00ff41, 0 0 12px #00ff41, 0 0 18px #00ff41";
+
       column.appendChild(span);
       spans.push(span);
     }
 
-    let isActive = true;
+    let isActive = true; // for random termination
 
     function updateColumn() {
       if (!isActive) {
-        // small chance to restart
+        // small chance to restart column
         if (Math.random() < 0.02) {
-          headY = -maxTrailLength * charHeight;
+          headY = -trailLength * charHeight;
           isActive = true;
         }
       } else {
         headY += columnSpeed;
 
-        // move spans relative to head
         spans.forEach((span, idx) => {
-          const relativeIndex = idx - Math.floor(headY / charHeight);
-          if (relativeIndex < 0 || relativeIndex >= maxTrailLength) {
-            span.style.display = "none"; // hide spans outside visible trail
+          const y = headY - idx * charHeight;
+          span.style.top = `${y}px`;
+
+          // gradient trail: head white, trailing green
+          if (idx === 0) {
+            span.style.color = "#ffffff"; // head
           } else {
-            span.style.display = "block";
-            const y = headY - idx * charHeight;
-            span.style.top = `${y}px`;
-
-            // gradient: head white, trailing green
-            if (relativeIndex === 0) {
-              span.style.color = "#ffffff";
-            } else {
-              const t = relativeIndex / maxTrailLength;
-              const green = Math.floor(255 * Math.pow(1 - t, 2));
-              span.style.color = `rgb(0, ${green}, 0)`;
-            }
-
-            // occasional character change (~1%)
-            if (Math.random() < 0.01) span.textContent = randomChar();
+            const t = idx / trailLength;
+            const green = Math.floor(255 * Math.pow(1 - t, 2));
+            span.style.color = `rgb(0, ${green}, 0)`;
           }
+
+          // occasional character change (~1%)
+          if (Math.random() < 0.01) span.textContent = randomChar();
         });
 
-        // randomly terminate column before bottom
-        if (headY - maxTrailLength * charHeight > window.innerHeight && Math.random() < 0.05) {
+        // end the column randomly before reaching bottom
+        if (headY - trailLength * charHeight > window.innerHeight && Math.random() < 0.05) {
           isActive = false;
         }
       }
@@ -124,13 +116,13 @@ function startMatrixRain() {
     requestAnimationFrame(updateColumn);
   }
 
-  // wider columns for performance
-  const columnWidth = 28;
+  // fewer columns due to larger font
+  const columnWidth = 28; // wider columns
   for (let x = 0; x < window.innerWidth; x += columnWidth) {
     createRainColumn(x);
   }
 }
-  
+
   // ----------------------
   // MAIN ENTRY
   // ----------------------
@@ -152,6 +144,7 @@ function startMatrixRain() {
   // Expose for manual control if needed
   window.startAnimation = startAnimation;
 });
+
 
 
 
