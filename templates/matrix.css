@@ -34,13 +34,14 @@
   color: #00ff41;
   text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);
   opacity: 0.8;
-  animation-name: rain-fall;
+  animation-name: matrix-rain;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-@keyframes rain-fall {
+@keyframes matrix-rain {
   0% { transform: translateY(-100px); }
   100% { transform: translateY(100vh); }
 }
+
 
