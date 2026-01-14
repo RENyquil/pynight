@@ -53,24 +53,28 @@ function startMatrixRain() {
     column.style.left = `${xPosition}px`;
     container.appendChild(column);
 
-    const charHeight = 18;
+    const charHeight = 18 + Math.floor(Math.random() * 3); // small variation per column (18–20px)
     const columnHeight = window.innerHeight + 200;
     const trailLength = Math.floor(Math.random() * 15 + 15);
     const columnSpeed = 1 + Math.random() * 3; // pixels per frame
     let headY = -Math.random() * 50; // start above screen
 
-    // Create spans for visible trail
     const spans = [];
     for (let i = 0; i < trailLength; i++) {
       const span = document.createElement("span");
       span.classList.add("rain");
       span.textContent = randomChar();
       span.style.position = "absolute";
-      span.style.top = `${-i * charHeight}px`; // stack vertically upward
+      span.style.top = `${-i * charHeight}px`;
       span.style.fontSize = `${charHeight}px`;
       span.style.fontFamily = '"Courier New", monospace';
-
+      
+      // horizontal flip ~90% chance
       if (Math.random() < 0.9) span.style.transform = "scaleX(-1)";
+
+      // soft green glow for all spans
+      span.style.textShadow = "0 0 4px #00ff41, 0 0 8px #00ff41";
+
       column.appendChild(span);
       spans.push(span);
     }
@@ -78,25 +82,24 @@ function startMatrixRain() {
     function updateColumn() {
       headY += columnSpeed;
 
-      // move each span relative to head
       spans.forEach((span, idx) => {
         const y = headY - idx * charHeight;
         span.style.top = `${y}px`;
 
-        // update color: head white, trail fading smoothly
+        // gradient trail: head white, trailing green fading smoothly
         if (idx === 0) {
-          span.style.color = "#ffffff"; // head white
+          span.style.color = "#ffffff"; // head
         } else {
           const t = idx / trailLength;
           const green = Math.floor(255 * Math.pow(1 - t, 2));
           span.style.color = `rgb(0, ${green}, 0)`;
         }
 
-        // occasional character change (~5%)
+        // occasional character change ~5%
         if (Math.random() < 0.05) span.textContent = randomChar();
       });
 
-      // restart column if it goes off screen
+      // restart column if offscreen
       if (headY - trailLength * charHeight > window.innerHeight) {
         headY = -Math.random() * 50;
       }
@@ -107,8 +110,7 @@ function startMatrixRain() {
     requestAnimationFrame(updateColumn);
   }
 
-  // wider columns, fewer total
-  const columnWidth = 24;
+  const columnWidth = 24; // wider columns, fewer total
   for (let x = 0; x < window.innerWidth; x += columnWidth) {
     createRainColumn(x);
   }
@@ -135,6 +137,7 @@ function startMatrixRain() {
   // Expose for manual control if needed
   window.startAnimation = startAnimation;
 });
+
 
 
 
