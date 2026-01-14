@@ -53,8 +53,7 @@ function startMatrixRain() {
     column.style.left = `${xPosition}px`;
     container.appendChild(column);
 
-    const charHeight = 18 + Math.floor(Math.random() * 3); // small variation per column (18–20px)
-    const columnHeight = window.innerHeight + 200;
+    const charHeight = 18 + Math.floor(Math.random() * 3); // small variation per column
     const trailLength = Math.floor(Math.random() * 15 + 15);
     const columnSpeed = 1 + Math.random() * 3; // pixels per frame
     let headY = -Math.random() * 50; // start above screen
@@ -68,12 +67,12 @@ function startMatrixRain() {
       span.style.top = `${-i * charHeight}px`;
       span.style.fontSize = `${charHeight}px`;
       span.style.fontFamily = '"Courier New", monospace';
-      
-      // horizontal flip ~90% chance
+
+      // horizontal flip ~90%
       if (Math.random() < 0.9) span.style.transform = "scaleX(-1)";
 
-      // soft green glow for all spans
-      span.style.textShadow = "0 0 4px #00ff41, 0 0 8px #00ff41";
+      // stronger, more intense glow
+      span.style.textShadow = "0 0 6px #00ff41, 0 0 12px #00ff41, 0 0 18px #00ff41";
 
       column.appendChild(span);
       spans.push(span);
@@ -95,8 +94,8 @@ function startMatrixRain() {
           span.style.color = `rgb(0, ${green}, 0)`;
         }
 
-        // occasional character change ~2%
-        if (Math.random() < 0.02) span.textContent = randomChar();
+        // occasional character change (~1%)
+        if (Math.random() < 0.01) span.textContent = randomChar();
       });
 
       // restart column if offscreen
@@ -137,6 +136,7 @@ function startMatrixRain() {
   // Expose for manual control if needed
   window.startAnimation = startAnimation;
 });
+
 
 
 
