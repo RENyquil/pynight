@@ -48,9 +48,9 @@ async function loadChallenge() {
   try {
     const res = await fetch("templates/template_list.json");
     templates = await res.json();
-  //} catch {
-  //  console.warn("⚠️ Failed to load templates.json, falling back to unthemed");
-  //}
+  } catch {
+    console.warn("⚠️ Failed to load templates.json, falling back to unthemed");
+  }
   
   const template =
     typeof c.template === "string" && templates.includes(c.template)
@@ -209,5 +209,6 @@ async function runCode() {
 // Initialize
 // ----------------------
 loadChallenge();
+
 
 
