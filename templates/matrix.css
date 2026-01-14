@@ -6,7 +6,7 @@
   --theme-sub-color: #00ff66;         /* bright Matrix green */
 
   /* Header image and text */
-  --theme-image: url("../assets/matrix_rain.png"); /* optional */
+  --theme-image: url("../assets/matrix_pills.png"); /* optional */
   --theme-main: "THE MATRIX";
   --theme-sub: "Free your Mind... and Code Python.";
   --theme-tagline: "\"Unfortunately, no one can be told what the Flags are, you have to find them yourself.\"";
@@ -43,3 +43,4 @@
   0% { transform: translateY(-100px); }
   100% { transform: translateY(100vh); }
 }
+
