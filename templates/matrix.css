@@ -23,25 +23,23 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: -1; /* behind everything */
+  z-index: -1;
 }
 
 .rain {
   position: absolute;
-  top: -100px;
-  color: #00ff41;
   font-family: "Courier New", monospace;
   font-size: 14px;
-  line-height: 1;
-  opacity: 0.8;
+  line-height: 14px;
+  color: #00ff41;
   text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);
+  opacity: 0.8;
   animation-name: rain-fall;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-@keyframes fall {
-  to {
-    transform: translateY(100vh);
-  }
+@keyframes rain-fall {
+  0% { transform: translateY(-100px); }
+  100% { transform: translateY(100vh); }
 }
