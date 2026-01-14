@@ -68,7 +68,6 @@ function startMatrixRain() {
       span.style.display = "block";
       span.style.height = `${charHeight}px`;
 
-      // horizontal flip ~90% of time
       if (Math.random() < 0.9) {
         span.style.transform = "scaleX(-1)";
       }
@@ -80,41 +79,41 @@ function startMatrixRain() {
     container.appendChild(column);
 
     // ----------------------
-    // Column speed (consistent per column)
+    // Per-column speed variation (consistent)
     // ----------------------
-    const columnSpeed = 1 + Math.random() * 3; 
-    let columnOffset = -Math.random() * 50;
-    let trailLength = Math.floor(Math.random() * 15 + 15); // longer trail for smoother gradient
+    const columnSpeed = 1 + Math.random() * 3; // pixels per frame
+    let columnOffset = -Math.random() * 50; // start slightly above
+    let trailLength = Math.floor(Math.random() * 10 + 10);
 
     function updateColumn() {
-      columnOffset += columnSpeed; 
+      columnOffset += columnSpeed; // consistent per column
       column.style.top = `${columnOffset}px`;
 
-      // dynamic gradient trail with smooth luminosity
+      // dynamic gradient trail
       for (let i = 0; i < spans.length; i++) {
         const relativeIndex = i - Math.floor(columnOffset / charHeight);
         if (relativeIndex === 0) {
-          spans[i].style.color = "#ffffff"; // head is bright white
+          spans[i].style.color = "#ffffff"; // head white
         } else if (relativeIndex > 0 && relativeIndex < trailLength) {
-          const t = relativeIndex / trailLength; // 0 → 1 along trail
-          const green = Math.floor(255 * Math.pow(1 - t, 2)); // quadratic decay for smooth fade
-          spans[i].style.color = `rgb(0, ${green}, 0)`;
+          const brightness = 1 - relativeIndex / trailLength;
+          const greenValue = Math.floor(255 * brightness);
+          spans[i].style.color = `rgb(0, ${greenValue}, 0)`;
         } else {
-          spans[i].style.color = "rgb(0,0,0)"; // invisible beyond trail
+          spans[i].style.color = "rgb(0,0,0)"; // invisible
         }
       }
 
-      // ~5% random character updates for flicker
+      // random character updates (~5%)
       spans.forEach(span => {
         if (Math.random() < 0.05) {
           span.textContent = randomChar();
         }
       });
 
-      // occasionally end the column trail and start a new one
+      // occasionally end the column trail and restart
       if (columnOffset > window.innerHeight + Math.random() * 200) {
         columnOffset = -Math.random() * 50;
-        trailLength = Math.floor(Math.random() * 15 + 15); 
+        trailLength = Math.floor(Math.random() * 10 + 10);
       }
 
       requestAnimationFrame(updateColumn);
@@ -124,7 +123,7 @@ function startMatrixRain() {
   }
 
   // ----------------------
-  // Fill screen with wider columns, fewer total
+  // Fill screen with wider columns
   // ----------------------
   const columnWidth = 24; 
   for (let x = 0; x < window.innerWidth; x += columnWidth) {
@@ -153,6 +152,7 @@ function startMatrixRain() {
   // Expose for manual control if needed
   window.startAnimation = startAnimation;
 });
+
 
 
 
