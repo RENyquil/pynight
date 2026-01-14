@@ -46,7 +46,7 @@ async function loadChallenge() {
   // ----------------------
   let templates = [];
   try {
-    const res = await fetch("templates/template_list.json");
+    const res = await fetch("./templates/template_list.json");
     templates = await res.json();
   } catch {
     console.warn("⚠️ Failed to load templates.json, falling back to unthemed");
@@ -209,6 +209,7 @@ async function runCode() {
 // Initialize
 // ----------------------
 loadChallenge();
+
 
 
 
