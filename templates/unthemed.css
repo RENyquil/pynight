@@ -1,0 +1,16 @@
+:root {
+  /* Background gradients */
+  --radial-highlight: #2a2d33;        /* subtle cool highlight */
+  --linear-gradient-top: #0f1115;     /* near-black */
+  --linear-gradient-bottom: #1a1d23;  /* dark gray */
+  --theme-sub-color: #98ff98;  /* red subtitle */
+
+  /* Header image and text */
+  --theme-image: url("../assets/python.png");
+  --theme-main: "PY NIGHT";
+  --theme-sub: "It's in our code!";
+
+  /* Accent colors */
+  --highlight-primary: #bfc4cc;       /* soft light gray */
+  --highlight-secondary: #8a8f98;     /* muted gray */
+}
