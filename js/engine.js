@@ -46,7 +46,8 @@ async function loadChallenge() {
   // ----------------------
   let templates = [];
   try {
-    const res = await fetch(`${BASE_PATH}templates/template_list.json`);
+    const templateListURL = new URL("templates/template_list.json", document.baseURI);
+    const res = await fetch(templateListURL);
     templates = await res.json();
   } catch {
     console.warn("⚠️ Failed to load template_list.json, falling back to unthemed");
@@ -58,7 +59,7 @@ async function loadChallenge() {
       : "unthemed";
 
   document.getElementById("theme-css").href =
-    `${BASE_PATH}templates/${template}.css`;
+    new URL(`templates/${template}.css`, document.baseURI).href;
 
   // ----------------------
   // Load Challenge Text
@@ -208,11 +209,4 @@ async function runCode() {
 // ----------------------
 // Initialize
 // ----------------------
-const BASE_PATH = window.location.pathname.replace(/\/[^/]*$/, "/");
 loadChallenge();
-
-
-
-
-
-
