@@ -117,7 +117,7 @@ function startMatrixRain() {
   }
 
   // fewer columns due to larger font
-  const columnWidth = 28; // wider columns
+  const columnWidth = 32; // wider columns
   for (let x = 0; x < window.innerWidth; x += columnWidth) {
     createRainColumn(x);
   }
@@ -144,6 +144,7 @@ function startMatrixRain() {
   // Expose for manual control if needed
   window.startAnimation = startAnimation;
 });
+
 
 
 
