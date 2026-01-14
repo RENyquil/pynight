@@ -29,7 +29,7 @@
 .rain {
   position: absolute;
   font-family: "Courier New", monospace;
-  font-size: 18px;
+  font-size: 22px;
   line-height: 14px;
   color: #00ff41;
   text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);
@@ -43,6 +43,7 @@
   0% { transform: translateY(-100px); }
   100% { transform: translateY(100vh); }
 }
+
 
 
 
