@@ -103,7 +103,7 @@ function startMatrixRain() {
   }
 
   // wider columns, fewer total for performance
-  const columnWidth = 20;
+  const columnWidth = 24;
   for (let x = 0; x < window.innerWidth; x += columnWidth) {
     createRainColumn(x);
   }
@@ -130,6 +130,7 @@ function startMatrixRain() {
   // Expose for manual control if needed
   window.startAnimation = startAnimation;
 });
+
 
 
 
