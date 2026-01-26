@@ -135,15 +135,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ----------------------
-  // Auto-start based on theme (optional)
+  // Auto-start based on theme
   // ----------------------
-  // You can set a data-attribute on body, e.g., <body data-theme="matrix">
-  const theme = document.body.dataset.theme || "matrix-rain";
-  startAnimation(theme);
+  const THEME_ANIMATIONS = {
+  matrix: "matrix-rain",
+  diehard: "snow",
+  default: null
+  };
+
+  const theme = document.body.dataset.theme || "default";
+  const animation = THEME_ANIMATIONS[theme] || null;
+  
+  if (animation) {
+    startAnimation(animation);
+  } else {
+    clearContainer(); // no animation
+  }
 
   // Expose for manual control if needed
   window.startAnimation = startAnimation;
 });
+
 
 
 
