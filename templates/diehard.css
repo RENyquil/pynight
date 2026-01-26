@@ -26,13 +26,13 @@
   z-index: -1; /* behind everything */
 }
 
-.snow {
+.snowflake {
   position: absolute;
   top: -10px; /* start above the viewport */
   background: white;
   border-radius: 50%;
   opacity: 0.8;
-  animation-name: fall;
+  animation-name: snow;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -42,4 +42,5 @@
     transform: translateY(100vh);
   }
 }
+
 
