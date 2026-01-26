@@ -26,7 +26,7 @@
   z-index: -1; /* behind everything */
 }
 
-.snowflake {
+.snow {
   position: absolute;
   top: -10px; /* start above the viewport */
   background: white;
@@ -42,3 +42,4 @@
     transform: translateY(100vh);
   }
 }
+
