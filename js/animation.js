@@ -134,27 +134,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // ----------------------
-  // Auto-start based on theme
-  // ----------------------
-  const THEME_ANIMATIONS = {
-  matrix: "matrix-rain",
-  diehard: "snow",
-  default: null
-  };
-
-  const theme = document.body.dataset.theme || "default";
-  const animation = THEME_ANIMATIONS[theme] || null;
-  
-  if (animation) {
-    startAnimation(animation);
-  } else {
-    clearContainer(); // no animation
-  }
-
   // Expose for manual control if needed
   window.startAnimation = startAnimation;
 });
+
 
 
 
