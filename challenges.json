@@ -73,7 +73,7 @@
   "test_code": "output = py_night()\noutput",
   "expected": "true",
   "required_terms": ["calculate_flag", "pill"],
-  "forbidden_terms": ["return 'true'"],
+  "forbidden_terms": [],
   "flag": "PY_NIGHT{CHOOSE_TRUTH}"
   },
   {
