@@ -265,9 +265,77 @@
   "starter_code": "def py_night():\n    signal = \"the City hums As ash SearchEs for clueS to find trinity, One Lead finally VErifies the Danger\"\n\n    result = ''\n\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
   "setup_code": "",
   "test_code": "output = py_night()\noutput",
-  "expected": "CASE SOLVED",
+  "expected": "CASESOLVED",
   "required_terms": ["for", "if"],
   "forbidden_terms": ["CASE", "SOLVED"],
   "flag": "PY_NIGHT{CASE_TO_END_ALL_CASES}"
+  },
+  {
+  "id": "matrix_012",
+  "template": "matrix",
+  "challenge_description": "The Architect does not explain — he defines. Construct a sequence that satisfies the system conditions.",
+  "challenge_stamp": "Zion Mainframe",
+  "tasks": [
+    "Create a list called result.",
+    "The list must have 5 elements.",
+    "The sum of all elements must equal 25.",
+    "Each number must be odd.",
+    "Numbers must be strictly increasing."
+  ],
+  "starter_code": "def py_night():\n    result = []\n\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
+  "test_code": "output = py_night()\noutput",
+  "expected": "[1, 3, 5, 7, 9]",
+  "required_terms": [],
+  "forbidden_terms": ["return [1, 3, 5, 7, 9]"]
+  "flag": "PY_NIGHT{HOPE}"
+  },
+  {
+  "id": "matrix_013",
+  "template": "matrix",
+  "challenge_description": "The Analyst has constructed multiple false realities. Some entries are corrupted noise, others are deliberate distractions. Identify the only valid red-path outcome and extract its hidden truth.",
+  "challenge_stamp": "Zion Mainframe",
+  "tasks": [
+    "A list of simulation entries is provided.",
+    "Some entries are corrupted and must be ignored.",
+    "Only use entries that are dictionaries with a string choice, a string outcome, and an integer stability.",
+    "From the valid entries, find only those where choice is 'red'.",
+    "Select the red entry with the highest stability.",
+    "Return only the uppercase letters from its outcome.",
+	"You'll need to use the built-in isinstance() functionality."
+  ],
+  "example": "",
+  "starter_code": "def py_night():\n    simulations = [\n        {'choice': 'blue', 'outcome': 'safe_loop', 'stability': 3},\n        {'choice': 'red', 'outcome': 'fAlSe_reAlItY', 'stability': 5},\n        'corrupted_signal',\n        {'choice': 'red', 'outcome': 'trUe_paTh_fOunD', 'stability': 9},\n        {'choice': 'blue', 'outcome': 'reset_cycle', 'stability': 6},\n        404,\n        {'choice': None, 'outcome': 'deCoY_sYstEm', 'stability': 4},\n        {'choice': 'red', 'outcome': 12345, 'stability': 12},\n        {'choice': 'red', 'outcome': 'frAgmEntEd', 'stability': 'high'},\n        ['red', 'glitch_path', 10],\n        {'choice': 'red', 'outcome': 'deCoY_sYstEm', 'stability': 4}\n    ]\n\n    result = ''\n\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
+  "setup_code": "",
+  "test_code": "output = py_night()\noutput",
+  "expected": "UOFD",
+  "required_terms": ["for", "if", "isinstance"],
+  "forbidden_terms": ["return 'UOFD'", "result = 'UOFD'"],
+  "flag": "PY_NIGHT{CONTROL_FEELINGS}"
+  },
+  {
+  "id": "matrix_999",
+  "template": "matrix",
+  "challenge_description": "Deus Ex Machina governs all systems. Programs, viruses, and corrupted signals flood the Machine City. Only by validating system integrity and decoding the truth can you override the system.",
+  "challenge_stamp": "Machine City Core",
+  "tasks": [
+    "A list of system entries is provided, including corrupted data.",
+    "Ignore any entries that are not valid dictionaries.",
+    "Only use entries where id is a string, path is a list, signal is a string, stability is an integer, and programs is a list.",
+    "Each program has a type and a risk level.",
+    "A program is safe if its type is not 'virus' and its risk is less than or equal to 5.",
+    "Only consider entries where ALL programs are safe.",
+    "From those, select entries whose path contains 'source'.",
+    "If multiple remain, choose the one with the highest stability.",
+    "If there is still a tie, choose the one with the longest path.",
+    "Extract and return only the uppercase letters from its signal."
+  ],
+  "example": "",
+  "starter_code": "def py_night():\n    system = [\n        {'id': 'alpha', 'path': ['matrix'], 'signal': 'faKe_sigNal', 'stability': 3, 'programs': [{'type': 'process', 'risk': 3}]},\n        'corrupt_data',\n        {'id': 'beta', 'path': ['matrix', 'source'], 'signal': 'trUe_paTh', 'stability': 7, 'programs': [{'type': 'virus', 'risk': 2}]},\n        404,\n        {'id': 'gamma', 'path': ['source'], 'signal': 'fInAl_keY_fOunD', 'stability': 10, 'programs': [{'type': 'process', 'risk': 5}, {'type': 'script', 'risk': 4}]},\n        {'id': None, 'path': ['source'], 'signal': 'invalid', 'stability': 12, 'programs': []},\n        {'id': 'delta', 'path': 'source', 'signal': 'bad_path', 'stability': 15, 'programs': []},\n        {'id': 'epsilon', 'path': ['matrix', 'source'], 'signal': 12345, 'stability': 20, 'programs': []},\n        {'id': 'zeta', 'path': ['matrix', 'source'], 'signal': 'sMiTh', 'stability': 10, 'programs': [{'type': 'virus', 'risk': 1}]},\n        {'id': 'omega', 'path': ['matrix', 'source', 'machine_city'], 'signal': 'SmiTh', 'stability': 10, 'programs': [{'type': 'process', 'risk': 3}, {'type': 'script', 'risk': 2}]}\n    ]\n\n    result = ''\n\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
+  "setup_code": "",
+  "test_code": "output = py_night()\noutput",
+  "expected": "SMITH",
+  "required_terms": ["for", "if", "isinstance"],
+  "forbidden_terms": ["return 'SMITH'", "result = 'SMITH'"],
+  "flag": "PY_NIGHT{6OD_0F_TH3_M@CH1NE5}"
   }
 ]
