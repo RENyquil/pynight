@@ -102,7 +102,7 @@
   "challenge_stamp": "Zion Mainframe",
   "tasks": [
     "One line appears twice, but only one copy should remain.",
-    "Identify and eliminate the duplicate line.",,
+    "Identify and eliminate the duplicate line.",
     "When fixed, the function should return the correct result. Username:Password"
   ],
   "example": "",
@@ -286,7 +286,7 @@
   "test_code": "output = py_night()\noutput",
   "expected": "[1, 3, 5, 7, 9]",
   "required_terms": [],
-  "forbidden_terms": ["return [1, 3, 5, 7, 9]"]
+  "forbidden_terms": ["return [1, 3, 5, 7, 9]"],
   "flag": "PY_NIGHT{HOPE}"
   },
   {
