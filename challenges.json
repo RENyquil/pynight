@@ -1,7 +1,7 @@
 [
   {
     "id": "diehard_001",
-    "template": "matrix",
+    "template": "diehard",
     "challenge_description": "Remove all Christmas-related words from the film transcript.",
     "challenge_stamp": "Nakatomi Corporation",
     "tasks": [
@@ -40,7 +40,7 @@
   },
   {
   "id": "diehard_003",
-  "template": "unthemed",
+  "template": "diehard",
   "challenge_description": "Nakatomi Vault features five mechanical locks, in the film, Theo brute-forced his way through them, now you should try to do the same.",
   "challenge_stamp": "Nakatomi Corporation",
   "tasks": [
@@ -55,6 +55,46 @@
   "required_terms": ["value = 7", "elif value", "elif 18", "while value", "result = True", "5", "3", "44", "return False", "18"],
   "forbidden_terms": ["return True"],
   "flag": "PY_NIGHT{THEO_IS_A_LOCKSMITH}"
+  },
+  {
+  "id": "matrix_001",
+  "template": "matrix",
+  "challenge_description": "You are offered a choice: the red pill or the blue pill. Choose wisely.",
+  "challenge_stamp": "Zion Mainframe",
+  "tasks": [
+    "The function receives a string called pill.",
+    "If pill is 'red', return 'truth'.",
+    "If pill is 'blue', return 'illusion'.",
+    "For any other input, return 'invalid'."
+  ],
+  "example": "choose_pill('red') -> 'truth'",
+  "starter_code": "def choose_pill(pill):\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
+  "setup_code": "",
+  "test_code": "output = choose_pill(pill)\noutput",
+  "expected": "truth",
+  "required_terms": [],
+  "forbidden_terms": [],
+  "flag": "PY_NIGHT{WELCOME_TO_THE_REAL_WORLD}"
+  },
+  {
+  "id": "matrix_002",
+  "template": "matrix",
+  "challenge_description": "The system is designed to terminate early. Override its exit conditions and force it to run exactly 10 cycles.",
+  "challenge_stamp": "Zion Mainframe",
+  "tasks": [
+    "Modify ONLY the conditional logic.",
+    "The loop must run exactly 10 times.",
+    "After 10 iterations, return True.",
+    "You may not change variable values or structure."
+  ],
+  "example": "",
+  "starter_code": "def break_the_system():\n    count = 0\n\n    while count < 10:\n        if count == 3:\n            return False\n        elif count > 5:\n            return False\n\n        count += 1\n\n    result = True\n\n    # Don't edit beyond this point!\n    return result",
+  "setup_code": "",
+  "test_code": "output = break_the_system()\noutput",
+  "expected": "true",
+  "required_terms": ["count < 10", "count += 1", "return False"],
+  "forbidden_terms": ["return True"],
+  "flag": "PY_NIGHT{THERE_IS_NO_SPOON}"
   }
 ]
 
