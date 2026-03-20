@@ -330,7 +330,7 @@
     "Extract and return only the uppercase letters from its signal."
   ],
   "example": "",
-  "starter_code": "def py_night():\n    system = [\n        {'id': 'alpha', 'path': ['matrix'], 'signal': 'faKe_sigNal', 'stability': 3, 'programs': [{'type': 'process', 'risk': 3}]},\n        'corrupt_data',\n        {'id': 'beta', 'path': ['matrix', 'source'], 'signal': 'trUe_paTh', 'stability': 7, 'programs': [{'type': 'virus', 'risk': 2}]},\n        404,\n        {'id': 'gamma', 'path': ['source'], 'signal': 'fInAl_keY_fOunD', 'stability': 10, 'programs': [{'type': 'process', 'risk': 5}, {'type': 'script', 'risk': 4}]},\n        {'id': '', 'path': ['source'], 'signal': 'invalid', 'stability': 12, 'programs': []},\n        {'id': 'delta', 'path': 'source', 'signal': 'bad_path', 'stability': 15, 'programs': []},\n        {'id': 'epsilon', 'path': ['matrix', 'source'], 'signal': 12345, 'stability': 20, 'programs': []},\n        {'id': 'zeta', 'path': ['matrix', 'source'], 'signal': 'sMiTh', 'stability': 10, 'programs': [{'type': 'virus', 'risk': 1}]},\n        {'id': 'omega', 'path': ['matrix', 'source', 'machine_city'], 'signal': 'SmiTh', 'stability': 10, 'programs': [{'type': 'process', 'risk': 3}, {'type': 'script', 'risk': 2}]}\n    ]\n\n    result = ''\n\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
+  "starter_code": "def py_night():\n",
   "setup_code": "",
   "test_code": "output = py_night()\noutput",
   "expected": "SMITH",
