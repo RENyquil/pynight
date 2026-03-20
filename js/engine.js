@@ -61,6 +61,24 @@ async function loadChallenge() {
   document.getElementById("theme-css").href =
     new URL(`templates/${template}.css`, document.baseURI).href;
 
+  // Sync theme with animation system
+  document.body.dataset.theme = template;
+  
+  // Trigger animation
+  const THEME_ANIMATIONS = {
+    matrix: "matrix-rain",
+    diehard: "snow",
+    jaws: null
+  };
+  
+  const animation = THEME_ANIMATIONS[template];
+  
+  if (animation && window.startAnimation) {
+    requestAnimationFrame(() => {
+      window.startAnimation(animation);
+    });
+  }
+  
   // ----------------------
   // Load Challenge Text
   // ----------------------
