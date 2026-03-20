@@ -106,11 +106,11 @@
     "When fixed, the function should return the correct result. Username:Password"
   ],
   "example": "",
-  "starter_code": "def py_night():\n    user_name = 'trinity'\n    access_code = '1010N01Z'\n    access_code = ''.join(reversed(text))\n    user_name = username.upper()\n    access_code = ''.join(reversed(text))\n    full_creds = user_name + ':' + access_code\n\n    # Don't edit beyond this point!\n    return full_creds",
+  "starter_code": "def py_night():\n    user_name = 'trinity'\n    access_code = '1010N01Z'\n    access_code = ''.join(reversed(access_code))\n    user_name = username.upper()\n    access_code = ''.join(reversed(access_code))\n    full_creds = user_name + ':' + access_code\n\n    # Don't edit beyond this point!\n    return full_creds",
   "setup_code": "",
   "test_code": "output = py_night()\noutput",
   "expected": "TRINITY:Z10N0101",
-  "required_terms": ["access_code = ''.join(reversed(text))", "full_creds = user_name + ':' + access_code"],
+  "required_terms": ["access_code = ''.join(reversed(access_code))", "full_creds = user_name + ':' + access_code"],
   "forbidden_terms": ["Z10N0101"],
   "flag": "PY_NIGHT{DEJA_VU_DETECTED}"
   },
@@ -195,7 +195,7 @@
   "id": "matrix_008",
   "template": "matrix",
   "challenge_description": "Neo can dodge some bullets, but not all of them. Analyze the incoming fire and return only the bullets he can evade.",
-  "challenge_stamp": "Construct Combat Simulation",
+  "challenge_stamp": "Zion Mainframe",
   "tasks": [
     "A list of incoming bullets is provided.",
     "Each bullet has a direction and a speed.",
@@ -234,7 +234,7 @@
   "id": "matrix_010",
   "template": "matrix",
   "challenge_description": "The Merovingian believes in cause and effect. Given an input, determine the inevitable outcome.",
-  "challenge_stamp": "Causality Engine",
+  "challenge_stamp": "Zion Mainframe",
   "tasks": [
     "A variable 'action' is provided.",
     "If action is 'cake', return 'desire'.",
@@ -316,7 +316,7 @@
   "id": "matrix_999",
   "template": "matrix",
   "challenge_description": "Deus Ex Machina governs all systems. Programs, viruses, and corrupted signals flood the Machine City. Only by validating system integrity and decoding the truth can you override the system.",
-  "challenge_stamp": "Machine City Core",
+  "challenge_stamp": "Zion Mainframe",
   "tasks": [
     "A list of system entries is provided, including corrupted data, this is defined in a predefined variable called 'system'",
     "Ignore any entries that are not valid dictionaries.",
