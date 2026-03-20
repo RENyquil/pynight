@@ -57,24 +57,24 @@
   "flag": "PY_NIGHT{THEO_IS_A_LOCKSMITH}"
   },
   {
-  "id": "matrix_001",
+  "id": "matrix_004",
   "template": "matrix",
-  "challenge_description": "You are offered a choice: the red pill or the blue pill. Choose wisely.",
+  "challenge_description": "The system asks you to choose the red or blue pill. Modify the code so the choice is properly passed to the calculation function that will determine the flag.",
   "challenge_stamp": "Zion Mainframe",
   "tasks": [
-    "The function receives a string called pill.",
-    "If pill is 'red', return 'truth'.",
-    "If pill is 'blue', return 'illusion'.",
-    "For any other input, return 'invalid'."
+    "The starter code asks for user input using input().",
+    "You must ensure the chosen pill is passed to the function calculate_flag().",
+    "Do not change the name of calculate_flag(), only redirect input to it.",
+    "Return the output of calculate_flag() as the result."
   ],
-  "example": "choose_pill('red') -> 'truth'",
-  "starter_code": "def choose_pill(pill):\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
+  "example": "choose_pill() -> calculate_flag('red') -> 'truth'",
+  "starter_code": "def calculate_flag(choice):\n    if choice == 'red':\n        return 'true''\n    elif choice == 'blue':\n        return 'illusion'\n    else:\n        return 'invalid'\n\n# User input\npill = input('Choose your pill (red/blue): ')\n\n# Your code here to pass pill to calculate_flag and return result\nresult = ''\n\n# Don't edit beyond this point!\nreturn result",
   "setup_code": "",
-  "test_code": "output = choose_pill(pill)\noutput",
-  "expected": "truth",
-  "required_terms": [],
+  "test_code": "output = calculate_flag(pill)\noutput",
+  "expected": "true",
+  "required_terms": ["calculate_flag", "pill"],
   "forbidden_terms": [],
-  "flag": "PY_NIGHT{WELCOME_TO_THE_REAL_WORLD}"
+  "flag": "PY_NIGHT{CHOOSE_TRUTH}"
   },
   {
   "id": "matrix_002",
