@@ -95,6 +95,46 @@
   "forbidden_terms": ["return True"],
   "flag": "PY_NIGHT{THERE_IS_NO_SPOON}"
   }
+{
+  "id": "matrix_003",
+  "template": "matrix",
+  "challenge_description": "The Matrix duplicated a line that should not exist. Comment out the unnecessary duplicate to restore the script.",
+  "challenge_stamp": "Zion Mainframe",
+  "tasks": [
+    "One line appears twice, but only one copy should remain.",
+    "Identify and eliminate the duplicate line.",
+    "Do not change anything else.",
+    "When fixed, the function should return the correct result."
+  ],
+  "example": "",
+  "starter_code": "def py_night():\n    access_code = 'trinity'\n    access_code = access_code.upper()\n    access_code = access_code + '!'\n\n    access_code = access_code + '!'\n\n    # Don't edit beyond this point!\n    return access_code",
+  "setup_code": "",
+  "test_code": "output = py_night()\noutput",
+  "expected": "TRINITY!",
+  "required_terms": ["access_code = access_code.upper()", "access_code = access_code + '!'"],
+  "forbidden_terms": [],
+  "flag": "PY_NIGHT{DEJA_VU_DETECTED}"
+},
+{
+  "id": "matrix_004",
+  "template": "matrix",
+  "challenge_description": "The system has hidden the correct lambda expression among several false possibilities. Identify the correct one, uncomment it, and let the code execute.",
+  "challenge_stamp": "Zion Mainframe",
+  "tasks": [
+    "Several possible lambda expressions are commented out.",
+    "Find the one valid option that correctly doubles the input.",
+    "Uncomment only the correct line.",
+    "Do not rewrite the function."
+  ],
+  "example": "",
+  "starter_code": "def py_night():\n    value = 7\n\n    # doubler = lambda x x * 2\n    # doubler = lambda: x * 2\n    # doubler = lambda x: x * 2\n    # doubler = lambda x, : x * 2\n\n    # Don't edit beyond this point!\n    return doubler(value)",
+  "setup_code": "",
+  "test_code": "output = py_night()\noutput",
+  "expected": "14",
+  "required_terms": ["lambda", "doubler = lambda x x * 2", "doubler = lambda: x * 2", "doubler = lambda x: x * 2", "doubler = lambda x, : x * 2"],
+  "forbidden_terms": [],
+  "flag": "PY_NIGHT{I_KNOW_KUNG_FU}"
+}
 ]
 
 
