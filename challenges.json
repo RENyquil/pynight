@@ -102,17 +102,16 @@
   "challenge_stamp": "Zion Mainframe",
   "tasks": [
     "One line appears twice, but only one copy should remain.",
-    "Identify and eliminate the duplicate line.",
-    "Do not change anything else.",
-    "When fixed, the function should return the correct result."
+    "Identify and eliminate the duplicate line.",,
+    "When fixed, the function should return the correct result. Username:Password"
   ],
   "example": "",
-  "starter_code": "def py_night():\n    access_code = 'trinity'\n    access_code = access_code.upper()\n    access_code = access_code + '!'\n\n    access_code = access_code + '!'\n\n    # Don't edit beyond this point!\n    return access_code",
+  "starter_code": "def py_night():\n    user_name = 'trinity'\n    access_code = '1010N01Z'\n    access_code = ''.join(reversed(text))\n    user_name = username.upper()\n    access_code = ''.join(reversed(text))\n    full_creds = user_name + ':' + access_code\n\n    # Don't edit beyond this point!\n    return full_creds",
   "setup_code": "",
   "test_code": "output = py_night()\noutput",
-  "expected": "TRINITY!",
-  "required_terms": ["access_code = access_code.upper()", "access_code = access_code + '!'"],
-  "forbidden_terms": [],
+  "expected": "TRINITY:Z10N0101",
+  "required_terms": ["access_code = ''.join(reversed(text))", "full_creds = user_name + ':' + access_code"],
+  "forbidden_terms": ["Z10N0101"],
   "flag": "PY_NIGHT{DEJA_VU_DETECTED}"
   },
   {
@@ -141,9 +140,8 @@
   "challenge_description": "Someone in the crew has betrayed the group to the agents. Identify the turncoat without directly referencing their name.",
   "challenge_stamp": "Zion Mainframe",
   "tasks": [
-    "A dictionary of crew members is provided.",
-    "Each member has a list of roles or traits.",
-    "Use python to return only the name of the crewmember whose list contains the role 'Turncoat'."
+    "A dictionary of crew members is provided. Each member has a list of roles or traits.",
+    "Use a for loop to return only the name of the crewmember whose list contains the role 'Turncoat'."
   ],
   "example": "",
   "starter_code": "def py_night():\n    crew = {\n        'Neo': ['The One'],\n        'Morpheus': ['Captain', 'Crew'],\n        'Trinity': ['Operator', 'Crew'],\n        'Tank': ['Operator', 'Crew'],\n        'Dozer': ['Medic', 'Pilot', 'Crew'],\n        'Cypher': ['Crew', 'Turncoat', 'Operator'],\n        'Switch': ['Crew', 'Scout'],\n        'Apoc': ['Crew', 'Scout'],\n        'Mouse': ['Crew', 'Programmer']\n    }\n\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
@@ -153,8 +151,123 @@
   "required_terms": ["for", "in", "crew = {", "'Neo': ['The One']"],
   "forbidden_terms": ["return 'Cypher'", "result = 'Cypher'"],
   "flag": "PY_NIGHT{IGNORANCE_IS_BLISS}"
+  },
+  {
+  "id": "matrix_006",
+  "template": "matrix",
+  "challenge_description": "The Oracle has seen your path, but the script is full of mistakes. Fix the errors so the function can resolve and prove you believe you are the One.",
+  "challenge_stamp": "Zion Mainframe",
+  "tasks": [
+    "The script contains several different Python errors.",
+    "Fix the broken lines so the function runs successfully.",
+    "Do not change the final return value.",
+    "When everything is fixed, the function should return the correct message."
+  ],
+  "example": "",
+  "starter_code": "def py_night():\n    prophecy = 'Bad news, sorry kid. Here, have a Cookie'\n    spoon = 1\n    dough = [1, 2, 3]\n    oven = {'temp': 350}\n\n    spoon.append(2)\n    crumbs = dough[5]\n    heat = oven['time']\n    prophecy = prophecy + 7\n    cookie = prophecy.upper()\n\n    # Don't edit beyond this point!\n    return 'Believe'",
+  "setup_code": "",
+  "test_code": "output = py_night()\noutput",
+  "expected": "Believe",
+  "required_terms": ["return 'Believe'"],
+  "forbidden_terms": [],
+  "flag": "PY_NIGHT{YOU_JUST_KNOW_IT}"
+  },
+  {
+  "id": "matrix_007",
+  "template": "matrix",
+  "challenge_description": "Agent Smith is scanning the system for Neo. Search the records and return Neo's current location.",
+  "challenge_stamp": "Zion Mainframe",
+  "tasks": [
+    "A dictionary of crew locations is provided.",
+    "Use Python to search the records for Neo.",
+    "Return only Neo's location."
+  ],
+  "example": "",
+  "starter_code": "def py_night():\n    crew_locations = {\n        'Morpheus': 'Construct',\n        'Trinity': 'Main Deck',\n        'Neo': 'Matrix',\n        'Tank': 'Broadcast Station',\n        'Dozer': 'Engine Room',\n        'Switch': 'Hallway',\n        'Apoc': 'Training Program',\n        'Mouse': 'Ventilation Shaft'\n    }\n\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
+  "setup_code": "",
+  "test_code": "output = py_night()\noutput",
+  "expected": "Matrix",
+  "required_terms": ["for", "in"],
+  "forbidden_terms": ["return 'Matrix'", "result = 'Matrix'"],
+  "flag": "PY_NIGHT{MR_ANDERSON_LOCATED}"
+  },
+  {
+  "id": "matrix_008",
+  "template": "matrix",
+  "challenge_description": "Neo can dodge some bullets, but not all of them. Analyze the incoming fire and return only the bullets he can evade.",
+  "challenge_stamp": "Construct Combat Simulation",
+  "tasks": [
+    "A list of incoming bullets is provided.",
+    "Each bullet has a direction and a speed.",
+    "A bullet is dodgeable only if its direction is not 'center' and its speed is less than or equal to 5.",
+    "Return a list containing only the dodgeable bullets. Format lists to provide Direction followed by Speed"
+  ],
+  "example": "",
+  "starter_code": "def py_night():\n    bullets = [\n        {'direction': 'left', 'speed': 3},\n        {'direction': 'center', 'speed': 2},\n        {'direction': 'right', 'speed': 5},\n        {'direction': 'left', 'speed': 7},\n        {'direction': 'right', 'speed': 1}\n    ]\n\n    result = []\n\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
+  "setup_code": "",
+  "test_code": "output = py_night()\noutput",
+  "expected": "[{'direction': 'left', 'speed': 3}, {'direction': 'right', 'speed': 5}, {'direction': 'right', 'speed': 1}]",
+  "required_terms": ["for", "if", "append"],
+  "forbidden_terms": ["return [{'direction': 'left', 'speed': 3}, {'direction': 'right', 'speed': 5}, {'direction': 'right', 'speed': 1}]"],
+  "flag": "PY_NIGHT{HES_BEGINNING_2_BELIEVE}"
+  },
+  {
+  "id": "matrix_009",
+  "template": "matrix",
+  "challenge_description": "The signal path is unstable. You must call the functions in the correct order to reconstruct the access code.",
+  "challenge_stamp": "Zion Mainframe",
+  "tasks": [
+    "Five functions are provided, each adding part of a code.",
+    "Call the functions in the correct order to build the final string.",
+    "Store the final value in result."
+  ],
+  "example": "",
+  "starter_code": "def decode(signal):\n    return signal + 'A'\n\ndef decrypt(signal):\n    return signal + 'C'\n\ndef stabilize(signal):\n    return signal + 'B'\n\ndef align(signal):\n    return signal + 'D'\n\ndef release(signal):\n    return signal + 'E'\n\n\ndef py_night():\n    signal = ''\n\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
+  "setup_code": "",
+  "test_code": "output = py_night()\noutput",
+  "expected": "ABCDE",
+  "required_terms": ["decode", "decrypt", "stabilize", "align", "release"],
+  "forbidden_terms": ["return 'ABCDE'"],
+  "flag": "PY_NIGHT{FOLLOW_THE_SIGNAL}"
+  },
+  {
+  "id": "matrix_010",
+  "template": "matrix",
+  "challenge_description": "The Merovingian believes in cause and effect. Given an input, determine the inevitable outcome.",
+  "challenge_stamp": "Causality Engine",
+  "tasks": [
+    "A variable 'action' is provided.",
+    "If action is 'cake', return 'desire'.",
+    "If action is 'wine', return 'truth'.",
+    "If action is 'fight', return 'chaos'.",
+    "Otherwise, return 'choice is an illusion'."
+  ],
+  "example": "",
+  "starter_code": "def py_night():\n    action = 'cake'\n\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
+  "setup_code": "",
+  "test_code": "output = py_night()\noutput",
+  "expected": "desire",
+  "required_terms": ["if", "elif"],
+  "forbidden_terms": ["return 'desire'", "result = 'desire'"],
+  "flag": "PY_NIGHT{ILLUS1ON_OF_CH0IC3}"
+  },
+  {
+  "id": "matrix_011",
+  "template": "matrix",
+  "challenge_description": "Ash is tracking Trinity, but the Agents have planted a bug in his eye. Filter the signal and extract the hidden message.",
+  "challenge_stamp": "Animatrix",
+  "tasks": [
+    "A corrupted message is provided.",
+    "Extract only the uppercase letters.",
+    "Return the decoded message."
+  ],
+  "example": "",
+  "starter_code": "def py_night():\n    signal = \"the City hums As ash SearchEs for clueS to find trinity, One Lead finally VErifies the Danger\"\n\n    result = ''\n\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
+  "setup_code": "",
+  "test_code": "output = py_night()\noutput",
+  "expected": "CASE SOLVED",
+  "required_terms": ["for", "if"],
+  "forbidden_terms": ["CASE", "SOLVED"],
+  "flag": "PY_NIGHT{CASE_TO_END_ALL_CASES}"
   }
 ]
-
-
-
