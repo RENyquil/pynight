@@ -136,21 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Expose for manual control if needed
   window.startAnimation = startAnimation;
-  // ----------------------
-  // AUTO-START BASED ON THEME
-  // ----------------------
-  const theme = document.body.dataset.theme;
   
-  const THEME_ANIMATIONS = {
-    matrix: "matrix-rain",
-    diehard: "snow"
-  };
-  
-  const animation = THEME_ANIMATIONS[theme];
-  
-  if (animation) {
-    startAnimation(animation);
-}
 });
 
 
