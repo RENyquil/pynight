@@ -40,7 +40,7 @@
   },
   {
   "id": "diehard_003",
-  "template": "diehard",
+  "template": "unthemed",
   "challenge_description": "Nakatomi Vault features five mechanical locks, in the film, Theo brute-forced his way through them, now you should try to do the same.",
   "challenge_stamp": "Nakatomi Corporation",
   "tasks": [
