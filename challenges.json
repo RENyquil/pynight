@@ -106,7 +106,7 @@
     "When fixed, the function should return the correct result. Username:Password"
   ],
   "example": "",
-  "starter_code": "def py_night():\n    user_name = 'trinity'\n    access_code = '1010N01Z'\n    access_code = ''.join(reversed(access_code))\n    user_name = username.upper()\n    access_code = ''.join(reversed(access_code))\n    full_creds = user_name + ':' + access_code\n\n    # Don't edit beyond this point!\n    return full_creds",
+  "starter_code": "def py_night():\n    user_name = 'trinity'\n    access_code = '1010N01Z'\n    access_code = ''.join(reversed(access_code))\n    user_name = user_name.upper()\n    access_code = ''.join(reversed(access_code))\n    full_creds = user_name + ':' + access_code\n\n    # Don't edit beyond this point!\n    return full_creds",
   "setup_code": "",
   "test_code": "output = py_night()\noutput",
   "expected": "TRINITY:Z10N0101",
