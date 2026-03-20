@@ -63,18 +63,17 @@
   "challenge_stamp": "Zion Mainframe",
   "tasks": [
     "The starter code asks for user input using input().",
-    "You must ensure the chosen pill is passed to the function calculate_flag().",
-    "Do not change the name of calculate_flag(), only redirect input to it.",
-    "Return the output of calculate_flag() as the result."
+    "You must ensure the chosen pill is passed to the function calculate_choice().",
+    "The result returned from calculate_choice() should be placed in the variable to test for validation."
   ],
   "example": "choose_pill() -> calculate_flag('red') -> 'truth'",
-  "starter_code": "def calculate_flag(choice):\n    if choice == 'red':\n        return 'true'\n    elif choice == 'blue':\n        return 'illusion'\n    else:\n        return 'invalid'\n\n# User input\npill = input('Choose your pill (red/blue): ')\n\n# Your code here to pass pill to calculate_flag and return result\nresult = ''\n\n# Don't edit beyond this point!\nreturn result",
+  "starter_code": "def calculate_choice(choice):\n    if choice.lower() == 'red':\n        return 'Stay in Wonderland.'\n    elif choice.lower() == 'blue':\n        return 'Believe whatever you want to believe.'\n    else:\n        return 'That wasn\\'t even one of the options.'\n\n# Your code here to pass pill to calculate_choice and return result\ndef py_night():\n    \n    pill = input('Choose a pill (Red/Blue): ')\n    # Your code here\n\n    choice =\n\n    # Don't edit beyond this point!\n    return choice",
   "setup_code": "",
   "test_code": "output = py_night()\noutput",
-  "expected": "true",
-  "required_terms": ["calculate_flag", "pill"],
+  "expected": "Stay in Wonderland.",
+  "required_terms": ["calculate_choice", "pill"],
   "forbidden_terms": [],
-  "flag": "PY_NIGHT{CHOOSE_TRUTH}"
+  "flag": "PY_NIGHT{HOW_DEEP_DOES_THE_RABBIT_HOLE_GO}"
   },
   {
   "id": "matrix_002",
