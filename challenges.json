@@ -134,6 +134,25 @@
   "required_terms": ["lambda", "doubler = lambda x x * 2", "doubler = lambda: x * 2", "doubler = lambda x: x * 2", "doubler = lambda x, : x * 2"],
   "forbidden_terms": [],
   "flag": "PY_NIGHT{I_KNOW_KUNG_FU}"
+  },
+  {
+  "id": "matrix_005",
+  "template": "matrix",
+  "challenge_description": "Someone in the crew has betrayed the group to the agents. Identify the turncoat without directly referencing their name.",
+  "challenge_stamp": "Zion Mainframe",
+  "tasks": [
+    "A dictionary of crew members is provided.",
+    "Each member has a role or trait.",
+    "Use python to return only the name of the crewmember with the trait 'turncoat'.",
+  ],
+  "example": "",
+  "starter_code": "def py_night():\n    crew = {\n        'Neo': 'The One',\n        'Morpheus': 'Captain',\n        'Trinity': 'Operator',\n        'Tank': 'Crew',\n        'Dozer': 'Crew',\n        'Cypher': 'turncoat',\n        'Switch': 'Crew',\n        'Apoc': 'Crew',\n        'Mouse': 'Crew'\n    }\n\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
+  "setup_code": "",
+  "test_code": "output = py_night()\noutput",
+  "expected": "Cypher",
+  "required_terms": ["for", "in", "return result", "crew = {", "'Neo': 'The One'"],
+  "forbidden_terms": ["return 'Cypher'", ],
+  "flag": "PY_NIGHT{IGNORANCE_IS_BLISS}"
   }
 ]
 
