@@ -87,11 +87,11 @@
     "You may not change variable values or structure."
   ],
   "example": "",
-  "starter_code": "def break_the_system():\n    count = 0\n\n    while count < 10:\n        if count == 3:\n            return False\n        elif count > 5:\n            return False\n\n        count += 1\n\n    result = True\n\n    # Don't edit beyond this point!\n    return result",
+  "starter_code": "def py_night():\n    count = 0\n\n    while count >= 0:\n        if count == 3:\n            return False\n        elif count > 5:\n            return False\n\n        elif count == 10:\n            break\n\n        count += 1\n\n    result = True\n\n    # Don't edit beyond this point!\n    return result",
   "setup_code": "",
   "test_code": "output = py_night()\noutput",
   "expected": "true",
-  "required_terms": ["count < 10", "count += 1", "return False"],
+  "required_terms": ["count = 0", "count >= 0", "count += 1", "return False"],
   "forbidden_terms": ["return True"],
   "flag": "PY_NIGHT{THERE_IS_NO_SPOON}"
   }
