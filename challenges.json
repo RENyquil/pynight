@@ -314,7 +314,7 @@
   },
   {
   "id": "matrix_999",
-  "template": "matrix",
+  "template": "unthemed",
   "challenge_description": "Deus Ex Machina governs all systems. Programs, viruses, and corrupted signals flood the Machine City. Only by validating system integrity and decoding the truth can you override the system.",
   "challenge_stamp": "Zion Mainframe",
   "tasks": [
