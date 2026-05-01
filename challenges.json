@@ -337,6 +337,24 @@
   "flag": "PY_NIGHT{6OD_0F_TH3_M@CH1NE5}"
   },
   {
+  "id": "pynight_000",
+  "template": "unthemed",
+  "challenge_description": "The First Code...",
+  "challenge_stamp": "PyNight",
+  "tasks": [
+    "In all things... whether it's Javascript, Java, or Python... we all begin in the same place.",
+    "Create a function that will display 'Hello World' to the console."
+  ],
+  "example": "",
+  "starter_code": "def py_night():\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return",
+  "setup_code": "",
+  "test_code": "output = py_night()\noutput",
+  "expected": "",
+  "required_terms": ["py_night", "print", "Hello", "World"],
+  "forbidden_terms": [],
+  "flag": "PY_NIGHT{IT_BEGINS}"
+  },
+  {
   "id": "pynight_001",
   "template": "unthemed",
   "challenge_description": "List Construction!",
@@ -347,7 +365,7 @@
     "Bonus: Try to challenge yourself on different ways you might consider creating a list."
   ],
   "example": "",
-  "starter_code": "def py_night():\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result"
+  "starter_code": "def py_night():\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
   "setup_code": "",
   "test_code": "output = py_night().sort()\noutput",
   "expected": "[Pepperoni, Sausage, Olives, Pineapple]",
@@ -366,7 +384,7 @@
     "Bonus: Try to challenge yourself on different ways you might consider creating a tuple."
   ],
   "example": "",
-  "starter_code": "def py_night():\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result"
+  "starter_code": "def py_night():\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
   "setup_code": "",
   "test_code": "output = py_night().sort()\noutput",
   "expected": "(Pepperoni, Sausage, Olives, Pineapple)",
@@ -385,7 +403,7 @@
     "Bonus: Try to challenge yourself on different ways you might consider creating a set."
   ],
   "example": "",
-  "starter_code": "def py_night():\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result"
+  "starter_code": "def py_night():\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
   "setup_code": "",
   "test_code": "output = py_night().sort()\noutput",
   "expected": "{Pepperoni, Sausage, Olives, Pineapple}",
@@ -394,34 +412,16 @@
   "flag": "PY_NIGHT{SETTING_SETS}"
   },
   {
-  "id": "pynight_000",
-  "template": "unthemed",
-  "challenge_description": "The First Code...",
-  "challenge_stamp": "PyNight",
-  "tasks": [
-    "In all things... whether it's Javascript, Java, or Python... we all begin in the same place.",
-    "Create a function that will display 'Hello World' to the console."
-  ],
-  "example": "",
-  "starter_code": "def py_night():\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return"
-  "setup_code": "",
-  "test_code": "output = py_night()\noutput",
-  "expected": "",
-  "required_terms": ["py_night", "print", "Hello", "World"],
-  "forbidden_terms": [],
-  "flag": "PY_NIGHT{IT_BEGINS}"
-  },
-  {
-  "id": "pynight_005",
+  "id": "pynight_004",
   "template": "unthemed",
   "challenge_description": "To the Maximum",
   "challenge_stamp": "PyNight",
   "tasks": [
     "Let's explore some of our built in python options.",
-    "For this challenge you need to use python to find the max value found in the list [10, 20, 30, 5, 25]",
+    "For this challenge you need to use python to find the max value found in the list [10, 20, 30, 5, 25]"
   ],
   "example": "",
-  "starter_code": "def py_night():\nList = [10, 20, 30, 5, 25]\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result"
+  "starter_code": "def py_night():\nList = [10, 20, 30, 5, 25]\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result",
   "setup_code": "",
   "test_code": "output = py_night()\noutput",
   "expected": "35",
