@@ -407,26 +407,25 @@
   "setup_code": "",
   "test_code": "output = py_night().sort()\noutput",
   "expected": "",
-  "required_terms": ["print", "Hello", "World"],
+  "required_terms": ["py_night", "print", "Hello", "World"],
   "forbidden_terms": [],
   "flag": "PY_NIGHT{IT_BEGINS}"
   },
   {
-  "id": "pynight_004",
+  "id": "pynight_005",
   "template": "unthemed",
   "challenge_description": "To the Maximum",
   "challenge_stamp": "PyNight",
   "tasks": [
     "Let's explore some of our built in python options.",
     "For this challenge you need to use python to find the max value found in the list [10, 20, 30, 5, 25]",
-    ""
   ],
   "example": "",
   "starter_code": "def py_night():\nList = [10, 20, 30, 5, 25]\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return result"
   "setup_code": "",
-  "test_code": "output = py_night().sort()\noutput",
-  "expected": "30",
-  "required_terms": ["max("],
+  "test_code": "output = py_night()\noutput",
+  "expected": "35",
+  "required_terms": ["max(", "py_night"],
   "forbidden_terms": ["result = 35"],
   "flag": "PY_NIGHT{SETTING_SETS}"
   }
