@@ -350,7 +350,7 @@
   "setup_code": "",
   "test_code": "output = py_night()\noutput",
   "expected": "",
-  "required_terms": ["py_night", "print", "Hello", "World"],
+  "required_terms": ["py_night", "print(\"Hello World\")"],
   "forbidden_terms": [],
   "flag": "PY_NIGHT{IT_BEGINS}"
   },
