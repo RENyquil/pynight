@@ -1,0 +1,58 @@
+.CodeMirror {
+
+    height: 350px;
+
+    font-size: 15px;
+
+    font-family: var(--font-mono);
+
+    border-radius: var(--radius-large);
+
+    border: 1px solid var(--panel-border);
+
+    background: #111;
+
+    color: var(--text-main);
+
+}
+
+.CodeMirror-gutters {
+
+    background: #161616;
+
+    border-right: 1px solid #333;
+
+}
+
+.CodeMirror-linenumber {
+
+    color: #777;
+
+}
+
+.CodeMirror-cursor {
+
+    border-left: 2px solid
+        var(--highlight-primary);
+
+}
+
+.CodeMirror-activeline-background {
+
+    background: rgba(255,255,255,.05);
+
+}
+
+.CodeMirror-selected {
+
+    background: rgba(255,255,255,.15);
+
+}
+
+.CodeMirror-focused {
+
+    box-shadow:
+        0 0 0 2px
+        var(--highlight-primary);
+
+}
