@@ -68,6 +68,7 @@ async function loadChallenge() {
   const THEME_ANIMATIONS = {
     matrix: "matrix-rain",
     diehard: "snow",
+	america: "stars",
     jaws: null
   };
   
@@ -98,7 +99,7 @@ async function loadChallenge() {
   document.getElementById("challenge-example").textContent = c.example || "";
 
   // Starter code
-  document.getElementById("editor").value = c.starter_code || "";
+  Editor.setValue(c.starter_code || "");
 
   // ----------------------
   // Setup challenge variables
@@ -131,7 +132,7 @@ async function loadChallenge() {
 // Run User Code
 // ----------------------
 async function runCode() {
-  const userCode = document.getElementById("editor").value;
+const userCode = Editor.getValue();
   const outputEl = document.getElementById("output");
 
   outputEl.value = ""; // clear previous output
@@ -143,6 +144,11 @@ async function runCode() {
     // Load setup_code (support external file paths)
     // ----------------------
     let setupCode = window.__SETUP_CODE__ || "";
+
+	// If setup_code is an array, join into Python code
+	if (Array.isArray(setupCode)) {
+	  setupCode = setupCode.join("\n");
+	}
 
     const fileAssignRegex = /=\s*"(.*?)"/g;
     const matches = [...setupCode.matchAll(fileAssignRegex)];
@@ -200,7 +206,7 @@ async function runCode() {
     // ----------------------
     // Run test code and capture output
     // ----------------------
-    let result = await pyodide.runPythonAsync(window.__TEST_CODE__ || "output");
+    let result = await pyodide.runPythonAsync(window.__TEST_CODE__ || "output = py_night()\noutput");
     
     // ----------------------
     // Normalize line endings for comparison
@@ -212,8 +218,16 @@ async function runCode() {
     // ----------------------
     // Compare result
     // ----------------------
-    if (!missingRequired && !violatedForbidden && normalizedResult === normalizedExpected) {
-      outputEl.value = `✅ SUCCESS\n${window.__FLAG__}`;
+  if (!missingRequired &&
+      !violatedForbidden &&
+      normalizedResult === normalizedExpected) {
+
+    outputEl.value =
+      `✅ SUCCESS\n${window.__FLAG__}`;
+
+    if (window.launchFireworks) {
+      window.launchFireworks();
+    }
     } else {
       // Show result for debugging, unless it's a successful flag
       outputEl.value = `▶️ Python Output:\n${normalizedResult}`;
@@ -224,6 +238,7 @@ async function runCode() {
   }
 }
 
+window.runCode = runCode;
 // ----------------------
 // Initialize
 // ----------------------
