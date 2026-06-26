@@ -295,3 +295,55 @@ button:hover {
 .firework-particle:nth-child(3n+2) {
   color: #4d79ff;
 }
+
+/* ========================================
+   BIG SUCCESS FIREWORKS
+======================================== */
+
+.victory-firework {
+  width: 8px;
+  height: 8px;
+
+  filter:
+    brightness(1.8)
+    saturate(1.8);
+
+  box-shadow:
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 35px currentColor,
+    0 0 55px currentColor;
+
+  animation: victory-explode 2.8s cubic-bezier(.08,.82,.17,1) forwards;
+}
+
+@keyframes victory-explode {
+  0% {
+    transform: translate(0, 0) scale(0.7);
+    opacity: 1;
+  }
+
+  18% {
+    transform: translate(
+      calc(var(--dx) * 0.35px),
+      calc(var(--dy) * 0.35px)
+    ) scale(1.8);
+
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translate(
+        calc(var(--dx) * 1px),
+        calc(var(--dy) * 1px)
+      )
+      scale(0.15);
+
+    opacity: 0;
+  }
+}
