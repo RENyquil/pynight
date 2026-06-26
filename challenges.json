@@ -11,7 +11,7 @@
       "If correct, the passphrase will be shown."
     ],
     "example": "xmas_words = ['Christmas', 'Xmas', 'Ebenezer Scrooge', 'Santa', 'Rudolph', 'Reindeer', 'Snow', 'Ode to Joy', 'Jingle Bells']",
-    "starter_code": "def py_night(film_script):\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return film_script",
+    "starter_code": "def py_night(film_script):\n    # Your code here\n    \n    # Don't edit beyond this point!\n    return film_script",
     "setup_code": "film_script = \"assets/diehard_transcript.txt\"\nxmas_words = ['Christmas', 'Xmas', 'Ebenezer Scrooge', 'Santa', 'Rudolph', 'Reindeer', 'Snow', 'Ode to Joy', 'Jingle Bells']",
     "test_code": "output = py_night(film_script)\noutput",
     "expected": "assets/diehard_grinch_transcript.txt",
@@ -30,7 +30,7 @@
       "Feel free to google what that password is... but real fans already know it. ;P"
     ],
     "example": "",
-    "starter_code": "def py_night():\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return password",
+    "starter_code": "def py_night():\n    # Your code here\n    \n    # Don't edit beyond this point!\n    return password",
     "setup_code": "",
     "test_code": "output = py_night()\noutput",
     "expected": "akagi",
@@ -126,7 +126,7 @@
     "Do not rewrite the function."
   ],
   "example": "",
-  "starter_code": "def py_night():\n    value = 7\n\n    # doubler = lambda x x * 2\n    # doubler = lambda: x * 2\n    # doubler = lambda x: x * 2\n    # doubler = lambda x, : x * 2\n\n    # Don't edit beyond this point!\n    return doubler(value)",
+  "starter_code": "def py_night():\n    value = 7\n    \n    # doubler = lambda x x * 2\n    # doubler = lambda: x * 2\n    # doubler = lambda x: x * 2\n    # doubler = lambda x, : x * 2\n    \n    # Don't edit beyond this point!\n    return doubler(value)",
   "setup_code": "",
   "test_code": "output = py_night()\noutput",
   "expected": "14",
@@ -346,7 +346,7 @@
     "Create a function that will display 'Hello World' to the console."
   ],
   "example": "",
-  "starter_code": "def py_night():\n    # Your code here\n\n\n\n    # Don't edit beyond this point!\n    return",
+  "starter_code": "def py_night():\n    # Your code here\n    \n    # Don't edit beyond this point!\n    return",
   "setup_code": "",
   "test_code": "output = py_night()\noutput",
   "expected": "",
@@ -458,7 +458,7 @@
   "expected": "['We', 'hold', 'these', 'truths', 'under', 'of', 'to', 'be', 'self-evident']",
   "required_terms": ["for", "in"],
   "forbidden_terms": [],
-  "flag": "FLAG{INDEPENDENT_COLONIES}"
+  "flag": "PY_NIGHT{INDEPENDENT_COLONIES}"
   },
   {
   "id": "america_002",
@@ -470,13 +470,13 @@
     "Return only states with more than 5 packages."
   ],
   "example": "",
-  "starter_code": "def py_night(mail):\n    # Your code here\n\n\n    # Don't edit beyond this point!\n    return result",
+  "starter_code": "def py_night(mail):\n    # Your code here\n    \n    \n    # Don't edit beyond this point!\n    return result",
   "setup_code": "mail = {'Alabama': 12, 'Alaska': 2, 'Arizona': 8, 'Arkansas': 4, 'California': 25, 'Colorado': 7, 'Connecticut': 3, 'Delaware': 6, 'Florida': 18, 'Georgia': 11, 'Hawaii': 5, 'Idaho': 3, 'Illinois': 14, 'Indiana': 6, 'Iowa': 4, 'Kansas': 7, 'Kentucky': 5, 'Louisiana': 9, 'Maine': 2, 'Maryland': 10, 'Massachusetts': 13, 'Michigan': 15, 'Minnesota': 6, 'Mississippi': 3, 'Missouri': 8, 'Montana': 2, 'Nebraska': 4, 'Nevada': 7, 'New Hampshire': 3, 'New Jersey': 16, 'New Mexico': 5, 'New York': 22, 'North Carolina': 12, 'North Dakota': 2, 'Ohio': 14, 'Oklahoma': 6, 'Oregon': 8, 'Pennsylvania': 17, 'Rhode Island': 3, 'South Carolina': 7, 'South Dakota': 2, 'Tennessee': 11, 'Texas': 30, 'Utah': 5, 'Vermont': 2, 'Virginia': 13, 'Washington': 10, 'West Virginia': 3, 'Wisconsin': 9, 'Wyoming': 1}",
   "test_code": "output = py_night(mail)\noutput",
   "expected": "{'Alabama': 12, 'Arizona': 8, 'California': 25, 'Colorado': 7, 'Florida': 18, 'Georgia': 11, 'Illinois': 14, 'Kansas': 7, 'Louisiana': 9, 'Maryland': 10, 'Massachusetts': 13, 'Michigan': 15, 'Missouri': 8, 'Nevada': 7, 'New Jersey': 16, 'New York': 22, 'North Carolina': 12, 'Ohio': 14, 'Oregon': 8, 'Pennsylvania': 17, 'South Carolina': 7, 'Tennessee': 11, 'Texas': 30, 'Virginia': 13, 'Washington': 10, 'Wisconsin': 9}",
   "required_terms": ["for", "in"],
   "forbidden_terms": [],
-  "flag": "FLAG{MAIL_ROUTE_LOCKED}"
+  "flag": "PY_NIGHT{MAIL_ROUTE_LOCKED}"
   },
   {
   "id": "america_003",
@@ -493,7 +493,7 @@
   "test_code": "output = py_night()\noutput",
   "expected": "['Launch', 'Exit Earth', 'Orbit Moon', 'Moon Landing', 'Return Home']",
   "forbidden_terms": ["['Launch', 'Exit Earth', 'Orbit Moon', 'Moon Landing', 'Return Home']"],
-  "flag": "FLAG{ONE_SMALL_SEQUENCE}"
+  "flag": "PY_NIGHT{ONE_SMALL_SEQUENCE}"
   },
   {
   "id": "america_004",
@@ -509,7 +509,7 @@
   "setup_code": "signals = [12, 88, 'noise', 51, 30, 99.6, 5, 72, True]",
   "test_code": "output = py_night(signals)\noutput",
   "expected": "[88, 51, 72]",
-  "flag": "FLAG{ORBITAL_SIGNAL_CLEAN}"
+  "flag": "PY_NIGHT{ORBITAL_SIGNAL_CLEAN}"
   },
   {
   "id": "america_005",
@@ -522,12 +522,12 @@
     "Only include miners who found at least 15 ounces of gold.",
     "Return a list containing only their names in the order they appear."
   ],
-  "starter_code": "def py_night(miners):\n    result = []\n\n    # Your code here\n\n    # Don't edit beyond this point!\n    return result",
+  "starter_code": "def py_night(miners):\n    result = []\n\n    # Your code here\n    \n    # Don't edit beyond this point!\n    return result",
   "setup_code": "miners=[{'name':'James','gold':14,'license':True},{'name':'Charlotte','gold':28,'license':True},{'name':'Samuel','gold':20,'license':False},{'name':'Henry','gold':17,'license':True},{'name':'Eliza','gold':2,'license':True},{'name':'Amelia','gold':19,'license':True}]",
   "test_code": "output = py_night(miners)\noutput",
   "expected": "['Charlotte', 'Henry', 'Amelia']",
   "forbidden_terms": ["return ['Charlotte', 'Henry', 'Amelia']"],
-  "flag": "FLAG{THERES_GOLD_IN_THEM_HILLS}"
+  "flag": "PY_NIGHT{THERES_GOLD_IN_THEM_HILLS}"
   },
   {
   "id": "america_006",
@@ -541,7 +541,7 @@
     "Return a list containing only the movie titles in their original order."
   ],
   "example": "",
-  "starter_code": "def py_night(movies):\n    result = []\n\n    # Your code here\n\n    # Don't edit beyond this point!\n    return result",
+  "starter_code": "def py_night(movies):\n    result = []\n\n    # Your code here\n    \n    # Don't edit beyond this point!\n    return result",
   "setup_code": "movies=[{'title':'Apollo 13','rating':8,'award':True},{'title':'Rocky','rating':8,'award':True},404,None,{'title':'Forrest Gump','rating':9,'award':True},{'title':'Top Gun','rating':7,'award':False},{'title':'Jaws','rating':'classic','award':True},'Hollywood',{'title':'Independence Day','rating':7,'award':False}]",
   "test_code": "output = py_night(movies)\noutput",
   "expected": "['Apollo 13', 'Rocky', 'Forrest Gump']",
@@ -550,7 +550,7 @@
     "return ['Apollo 13', 'Rocky', 'Forrest Gump']",
     "result = ['Apollo 13', 'Rocky', 'Forrest Gump']"
   ],
-  "flag": "FLAG{LIGHTS_CAMERA_ACTION}"
+  "flag": "PY_NIGHT{LIGHTS_CAMERA_ACTION}"
   },
   {
   "id": "america_007",
@@ -562,12 +562,12 @@
     "Create a dictionary called result using the names as keys and duties as values.",
     "Do not hardcode the answer."
   ],
-  "starter_code": "def py_night(names, duties):\n    result = {}\n\n    # Your code here\n\n    # Don't edit beyond this point!\n    return result",
+  "starter_code": "def py_night(names, duties):\n    result = {}\n\n    # Your code here\n    \n    # Don't edit beyond this point!\n    return result",
   "setup_code": "names=['John','William','Edward','Priscilla','Myles']\nduties=['Governor','Farmer','Carpenter','Teacher','Captain']",
   "test_code": "output = py_night(names,duties)\noutput",
   "expected": "{'John': 'Governor', 'William': 'Farmer', 'Edward': 'Carpenter', 'Priscilla': 'Teacher', 'Myles': 'Captain'}",
   "forbidden_terms": ["Governor','William"],
-  "flag": "FLAG{COMPACT_SIGNED}"
+  "flag": "PY_NIGHT{COMPACT_SIGNED}"
   },
   {
   "id": "america_008",
@@ -581,7 +581,7 @@
     "Return a list containing only the monument names in their original order."
   ],
   "example": "",
-  "starter_code": "def py_night(monuments):\n    result = []\n\n    # Your code here\n\n    # Don't edit beyond this point!\n    return result",
+  "starter_code": "def py_night(monuments):\n    result = []\n\n    # Your code here\n    \n    # Don't edit beyond this point!\n    return result",
   "setup_code": "monuments=[{'name':'Mount Rushmore','protected':True,'visitors':2100000},'Closed',404,{'name':'Statue of Liberty','protected':True,'visitors':4300000},{'name':'Hollywood Sign','protected':False,'visitors':5000000},None,{'name':'Washington Monument','protected':True,'visitors':'unknown'},{'name':'Liberty Bell','protected':True,'visitors':650000},{'name':'Gateway Arch','protected':True,'visitors':1900000}]",
   "test_code": "output = py_night(monuments)\noutput",
   "expected": "['Mount Rushmore', 'Statue of Liberty', 'Gateway Arch']",
@@ -590,7 +590,7 @@
     "return ['Mount Rushmore', 'Statue of Liberty', 'Gateway Arch']",
     "result = ['Mount Rushmore', 'Statue of Liberty', 'Gateway Arch']"
   ],
-  "flag": "FLAG{LAND_OF_MONUMENTS}"
+  "flag": "PY_NIGHT{LAND_OF_MONUMENTS}"
   },
   {
   "id": "america_009",
@@ -606,7 +606,7 @@
     "Return a sorted list of the unique ship names that carried qualifying tea."
   ],
   "example": "",
-  "starter_code": "def py_night(cargo):\n    result = []\n\n    # Your code here\n\n    # Don't edit beyond this point!\n    return result",
+  "starter_code": "def py_night(cargo):\n    result = []\n\n    # Your code here\n    \n    # Don't edit beyond this point!\n    return result",
   "setup_code": "cargo=[{'ship':'Dartmouth','cargo':'Tea','taxed':True,'weight':120},{'ship':'Beaver','cargo':'Tea','taxed':True,'weight':110},404,'Harbor',{'ship':'Eleanor','cargo':'Tea','taxed':False,'weight':130},{'ship':'Dartmouth','cargo':'Tea','taxed':True,'weight':125},{'ship':'Mercury','cargo':'Coffee','taxed':True,'weight':140},{'ship':'Liberty','cargo':'Tea','taxed':True,'weight':'Heavy'},{'ship':'Beaver','cargo':'Tea','taxed':True,'weight':118}]",
   "test_code": "output = py_night(cargo)\noutput",
   "expected": "['Beaver', 'Dartmouth']",
@@ -617,7 +617,7 @@
     "return ['Beaver', 'Dartmouth']",
     "result = ['Beaver', 'Dartmouth']"
   ],
-  "flag": "FLAG{TAXATION_WITHOUT_REPRESENTATION}"
+  "flag": "PY_NIGHT{TAXATION_WITHOUT_REPRESENTATION}"
   },
   {
   "id": "america_010",
@@ -637,14 +637,14 @@
     "Programatically calculate health and food modifications based on the events received by the py_night function.",
     "Return a dictionary containing the final food and health values."
   ],
-  "starter_code": "def py_night(events):\n    result = {}\n\n    # Your code here\n\n    # Don't edit beyond this point!\n    return result",
+  "starter_code": "def py_night(events):\n    result = {}\n\n    # Your code here\n    \n    # Don't edit beyond this point!\n    return result",
   "setup_code": "events=['meal','hunt','river','meal','illness','rest','hunt','meal','dysentary','river']",
   "test_code": "output = py_night(events)\noutput",
   "expected": "{'food': 95, 'health': 15}",
   "forbidden_terms": [
     "return {'food': 95, 'health': 15}"
   ],
-  "flag": "FLAG{WESTWARD_BOUND}"
+  "flag": "PY_NIGHT{WESTWARD_BOUND}"
   },
   {
   "id": "america_011",
@@ -670,7 +670,7 @@
     "value = encrypt(value)"
   ],
   "forbidden_terms": ["LIBERTY"],
-  "flag": "FLAG{GIVE_ME_LIBERTY!}"
+  "flag": "PY_NIGHT{GIVE_ME_LIBERTY!}"
   },
   {
   "id": "america_012",
@@ -693,7 +693,7 @@
   "setup_code": "packets=[{'id':1,'payload':'HE','route':['UCLA'], 'ttl':2,'checksum':True},{'id':2,'payload':'LL','route':['MIT'], 'ttl':5,'checksum':True},{'id':2,'payload':'XX','route':['MIT'], 'ttl':1,'checksum':True},{'id':3,'payload':'O!','route':['UCLA'], 'ttl':3,'checksum':True},404,None]",
   "test_code": "output = py_night(packets)\noutput",
   "expected": "HELLO!",
-  "flag": "FLAG{NETWORK_RESTORED}"
+  "flag": "PY_NIGHT{NETWORK_RESTORED}"
   },
   {
   "id": "america_013",
@@ -709,7 +709,7 @@
   "setup_code": ["import sys", "trade_ledger = type('obj', (), {'calculate_tariff': lambda self, x: x * 1.08})()", "sys.modules['trade_ledger'] = trade_ledger"],
   "test_code": "output = py_night()\noutput",
   "expected": "108",
-  "flag": "FLAG{PORT_OF_ENTRY}"
+  "flag": "PY_NIGHT{PORT_OF_ENTRY}"
   },
   {
   "id": "america_014",
@@ -723,13 +723,13 @@
     "Return the total number of workers across all valid entries."
   ],
   "example": "",
-  "starter_code": "def py_night():\n    records = [\n        {'project': 'Bridge', 'workers': 120},\n        None,\n        {'project': 'Roads', 'workers': '85'},\n        {'project': 'Schools', 'workers': 200},\n        'corrupt_data',\n        {'project': 'Hospitals'}\n    ]\n\n    result = 0\n\n    # Your code here\n\n    # Don't edit beyond this point!\n    return result",
+  "starter_code": "def py_night():\n    records = [\n        {'project': 'Bridge', 'workers': 120},\n        None,\n        {'project': 'Roads', 'workers': '85'},\n        {'project': 'Schools', 'workers': 200},\n        'corrupt_data',\n        {'project': 'Hospitals'}\n    ]\n\n    result = 0\n\n    # Your code here\n    \n    # Don't edit beyond this point!\n    return result",
   "setup_code": "",
   "test_code": "output = py_night()\noutput",
   "expected": "320",
   "required_terms": ["for", "in", "isinstance", "int"],
   "forbidden_terms": [],
-  "flag": "FLAG{NEW_DEAL_RESTORED}"
+  "flag": "PY_NIGHT{NEW_DEAL_RESTORED}"
   },
   {
   "id": "america_015",
@@ -743,13 +743,13 @@
     "Store the final route in the variable 'result'."
   ],
   "example": "Station progression must reflect a valid east-to-west expansion path.",
-  "starter_code": "def omaha(sequence):\n    sequence.append('Omaha')\n    return sequence\n\ndef chicago(sequence):\n    sequence.append('Chicago')\n    return sequence\n\ndef sacramento(sequence):\n    sequence.append('Sacramento')\n    return sequence\n\ndef denver(sequence):\n    sequence.append('Denver')\n    return sequence\n\ndef new_york(sequence):\n    sequence.append('New York')\n    return sequence\n\ndef py_night():\n    result = []\n\n    # Your code here\n\n    # Don't edit beyond this point!\n    return result",
+  "starter_code": "def omaha(sequence):\n    sequence.append('Omaha')\n    return sequence\n\ndef chicago(sequence):\n    sequence.append('Chicago')\n    return sequence\n\ndef sacramento(sequence):\n    sequence.append('Sacramento')\n    return sequence\n\ndef denver(sequence):\n    sequence.append('Denver')\n    return sequence\n\ndef new_york(sequence):\n    sequence.append('New York')\n    return sequence\n\ndef py_night():\n    result = []\n\n    # Your code here\n    \n    # Don't edit beyond this point!\n    return result",
   "setup_code": "",
   "test_code": "output = py_night()\noutput",
   "expected": "['New York', 'Chicago', 'Omaha', 'Denver', 'Sacramento']",
   "required_terms": ["new_york", "chicago", "omaha", "denver", "sacramento"],
   "forbidden_terms": ["['New York', 'Chicago', 'Omaha', 'Denver', 'Sacramento']"],
-  "flag": "FLAG{CONNECTING_THE_CONTINENT}"
+  "flag": "PY_NIGHT{CONNECTING_THE_CONTINENT}"
   },
   {
   "id": "america_016",
@@ -765,13 +765,13 @@
     "Invalid or incomplete records must be excluded.",
     "Return only valid entries in original order."
   ],
-  "starter_code": "def py_night():\n    records = [\n        {'name': 'Puerto Rico', 'region': 'Caribbean', 'population': 3200000},\n        {'name': 'Guam', 'region': 'Pacific'},\n        {'name': 'American Samoa', 'region': 'Pacific', 'population': '55000'},\n        {'name': 'U.S. Virgin Islands', 'region': 'Caribbean', 'population': 100000},\n        {'name': 'Northern Mariana Islands', 'region': 'Pacific', 'population': 47000},\n        {'name': 'Palau', 'region': 'Pacific', 'population': 18000}\n    ]\n\n    result = []\n\n    # Your code here\n\n    # Don't edit beyond this point!\n    return result",
+  "starter_code": "def py_night():\n    records = [\n        {'name': 'Puerto Rico', 'region': 'Caribbean', 'population': 3200000},\n        {'name': 'Guam', 'region': 'Pacific'},\n        {'name': 'American Samoa', 'region': 'Pacific', 'population': '55000'},\n        {'name': 'U.S. Virgin Islands', 'region': 'Caribbean', 'population': 100000},\n        {'name': 'Northern Mariana Islands', 'region': 'Pacific', 'population': 47000},\n        {'name': 'Palau', 'region': 'Pacific', 'population': 18000}\n    ]\n\n    result = []\n\n    # Your code here\n    \n    # Don't edit beyond this point!\n    return result",
   "setup_code": "",
   "test_code": "output = py_night()\noutput",
   "expected": "[{'name': 'Puerto Rico', 'region': 'Caribbean', 'population': 3200000}, {'name': 'U.S. Virgin Islands', 'region': 'Caribbean', 'population': 100000}, {'name': 'Northern Mariana Islands', 'region': 'Pacific', 'population': 47000}, {'name': 'Palau', 'region': 'Pacific', 'population': 18000}]",
   "required_terms": ["for", "in", "isinstance"],
   "forbidden_terms": [],
-  "flag": "FLAG{CENSUS_TERRITORY_VALIDATION}"
+  "flag": "PY_NIGHT{CENSUS_TERRITORY_VALIDATION}"
   },
   {
   "id": "america_017",
@@ -789,13 +789,13 @@
     "A country is a 'strategic partner' if its weighted score is >= 75.",
     "Return a dictionary of strategic partners with their weighted scores."
   ],
-  "starter_code": "def py_night():\n    partnerships = {\n        'Canada': [\n            {'score': 90, 'weight': 3, 'active': True},\n            {'score': 85, 'weight': 2, 'active': True},\n            {'score': 40, 'weight': 1, 'active': False}\n        ],\n        'Germany': [\n            {'score': 88, 'weight': 3, 'active': True},\n            {'score': 70, 'weight': 2, 'active': True}\n        ],\n        'France': [\n            {'score': 60, 'weight': 3, 'active': True},\n            {'score': 55, 'weight': 2, 'active': True}\n        ],\n        'Japan': [\n            {'score': 92, 'weight': 3, 'active': True},\n            {'score': 88, 'weight': 2, 'active': True}\n        ],\n        'Australia': [\n            {'score': 80, 'weight': 2, 'active': True},\n            {'score': 78, 'weight': 1, 'active': True}\n        ]\n    }\n\n    result = {}\n\n    # Your code here\n\n    # Don't edit beyond this point!\n    return result",
+  "starter_code": "def py_night():\n    partnerships = {\n        'Canada': [\n            {'score': 90, 'weight': 3, 'active': True},\n            {'score': 85, 'weight': 2, 'active': True},\n            {'score': 40, 'weight': 1, 'active': False}\n        ],\n        'Germany': [\n            {'score': 88, 'weight': 3, 'active': True},\n            {'score': 70, 'weight': 2, 'active': True}\n        ],\n        'France': [\n            {'score': 60, 'weight': 3, 'active': True},\n            {'score': 55, 'weight': 2, 'active': True}\n        ],\n        'Japan': [\n            {'score': 92, 'weight': 3, 'active': True},\n            {'score': 88, 'weight': 2, 'active': True}\n        ],\n        'Australia': [\n            {'score': 80, 'weight': 2, 'active': True},\n            {'score': 78, 'weight': 1, 'active': True}\n        ]\n    }\n\n    result = {}\n\n    # Your code here\n    \n    # Don't edit beyond this point!\n    return result",
   "setup_code": "",
   "test_code": "output = py_night()\noutput",
   "expected": "{'Canada': 88.0, 'Germany': 82.4, 'Japan': 90.4, 'Australia': 79.3}",
   "required_terms": ["for", "in", "if"],
   "forbidden_terms": [],
-  "flag": "FLAG{DIPLOMATIC_WEIGHTED_ANALYSIS}"
+  "flag": "PY_NIGHT{DIPLOMATIC_WEIGHTED_ANALYSIS}"
   },
   {
   "id": "america_018",
@@ -810,7 +810,7 @@
     "If both valuation and growth are tied, prefer higher founder_score.",
     "Return a list of startup names in ranked order."
   ],
-  "starter_code": "def py_night(startups):\n    result = []\n\n    # Your code here\n\n    # Don't edit beyond this point!\n    return result",
+  "starter_code": "def py_night(startups):\n    result = []\n\n    # Your code here\n    \n    # Don't edit beyond this point!\n    return result",
   "setup_code": "startups=[{'name':'NeuraLinkX','valuation':120,'growth':80,'founder_score':90},{'name':'CloudHarbor','valuation':150,'growth':60,'founder_score':70},{'name':'DataForge','valuation':150,'growth':60,'founder_score':95},{'name':'QuantumCart','valuation':90,'growth':95,'founder_score':88},{'name':'ByteBridge','valuation':120,'growth':85,'founder_score':85},{'name':'SynthScale','valuation':90,'growth':95,'founder_score':80}]",
   "test_code": "output = py_night(startups)\noutput",
   "expected": "['CloudHarbor', 'DataForge', 'ByteBridge', 'NeuraLinkX', 'QuantumCart', 'SynthScale']",
@@ -818,7 +818,7 @@
   "forbidden_terms": [
     "return ['CloudHarbor', 'DataForge', 'ByteBridge', 'NeuraLinkX', 'QuantumCart', 'SynthScale']"
   ],
-  "flag": "FLAG{VALLEY_RANKING_ENGINE}"
+  "flag": "PY_NIGHT{VALLEY_RANKING_ENGINE}"
   },
   {
   "id": "america_998",
@@ -832,13 +832,13 @@
     "Return the filtered list in original order."
   ],
   "example": "",
-  "starter_code": "def py_night():\n    signals = [12, 88, 'noise', 51, 30, 99.6, 5, 72, True, 150]\n\n    result = []\n\n    # Your code here\n\n    # Don't edit beyond this point!\n    return result",
+  "starter_code": "def py_night():\n    signals = [12, 88, 'noise', 51, 30, 99.6, 5, 72, True, 150]\n\n    result = []\n\n    # Your code here\n    \n    # Don't edit beyond this point!\n    return result",
   "setup_code": "",
   "test_code": "output = py_night()\noutput",
   "expected": "[12, 88, 51, 30, 72]",
   "required_terms": ["for", "in", "isinstance"],
   "forbidden_terms": [],
-  "flag": "FLAG{PRECISION_SIGNAL_LOCK}"
+  "flag": "PY_NIGHT{PRECISION_SIGNAL_LOCK}"
   },
   {
   "id": "america_999",
@@ -855,12 +855,12 @@
     "Return only the uppercase letters found in its telemetry string."
   ],
   "example": "",
-  "starter_code": "def py_night():\n    result = ''\n\n    # missions is already defined\n    # Your code here\n\n    # Don't edit beyond this point!\n    return result",
+  "starter_code": "def py_night():\n    result = ''\n\n    # missions is already defined\n    # Your code here\n    \n    # Don't edit beyond this point!\n    return result",
   "setup_code": "missions=[{'mission':'Apollo 11','destination':'Moon','success':True,'year':1969,'telemetry':'one_SmAll_stEp','crew':[{'name':'Neil','role':'Commander'},{'name':'Buzz','role':'Pilot'},{'name':'Michael','role':'Command Module'}]},'Apollo 13',404,{'mission':'Apollo 12','destination':'Moon','success':True,'year':1969,'telemetry':'surVeyOr_reCovEred','crew':[{'name':'Pete','role':'Commander'},{'name':'Alan','role':'Pilot'},{'name':'Richard','role':'Command Module'}]},{'mission':'Apollo 17','destination':'Moon','success':True,'year':1972,'telemetry':'geOlogY_mIssIon_comPlete','crew':[{'name':'Gene','role':'Commander'},{'name':'Ron','role':'Pilot'},{'name':'Jack','role':'Scientist'}]},{'mission':'Skylab','destination':'Orbit','success':True,'year':1973,'telemetry':'orbIt','crew':[{'name':'Pete','role':'Commander'}]},{'mission':'Broken','destination':'Moon','success':True,'year':'1970','telemetry':'BROKEN','crew':[]}]",
   "test_code": "output = py_night()\noutput",
   "expected": "OYIP",
   "required_terms": ["isinstance"],
   "forbidden_terms": ["return 'OYIP'","result = 'OYIP'"],
-  "flag": "FLAG{GIANT_LEAP}"
+  "flag": "PY_NIGHT{GIANT_LEAP}"
   }
 ]
