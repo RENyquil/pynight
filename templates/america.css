@@ -317,6 +317,19 @@ button:hover {
   animation: victory-explode 2.8s cubic-bezier(.08,.82,.17,1) forwards;
 }
 
+.victory-firework {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  opacity: 1;
+  background: currentColor;
+
+  filter:
+    brightness(2)
+    saturate(2);
+
+  animation: victory-explode 2.8s cubic-bezier(.08,.82,.17,1) forwards;
+}
 @keyframes victory-explode {
   0% {
     transform: translate(0, 0) scale(0.7);
