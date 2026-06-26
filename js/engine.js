@@ -34,8 +34,8 @@ function startThemeAnimation(template) {
 function triggerSuccessAnimation() {
   if (window.launchFireworks) {
     window.launchFireworks({
-      burstCount: 4,
-      centeredOnOutput: true
+      mode: "victory",
+      burstCount: 7
     });
   }
 }
