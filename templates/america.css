@@ -3,18 +3,15 @@
 ======================================== */
 
 :root {
-  /* ===== BACKGROUND ===== */
   --radial-highlight: rgba(255, 0, 0, 0.12);
   --linear-gradient-top: #0b1736;
   --linear-gradient-bottom: #050b18;
 
-  /* ===== THEME CONTENT ===== */
   --theme-image: url("../assets/american_flag.png");
   --theme-main: "AMERICA!";
   --theme-sub: "Stars, Stripes, and Python Scripts";
   --theme-tagline: "\"It's in our code.\"";
 
-  /* ===== COLORS ===== */
   --highlight-primary: #ff3b3b;
   --highlight-secondary: #6ea8ff;
 
@@ -42,60 +39,55 @@ body {
 
 body::before {
   content: "";
-
   position: fixed;
   inset: 0;
 
-background: linear-gradient(
-  to bottom,
+  background: linear-gradient(
+    to bottom,
 
-  rgba(255, 0, 0, 0.08) 0%,
-  rgba(255, 0, 0, 0.08) 7.69%,
+    rgba(255, 0, 0, 0.08) 0%,
+    rgba(255, 0, 0, 0.08) 7.69%,
 
-  rgba(255, 255, 255, 0.08) 7.69%,
-  rgba(255, 255, 255, 0.08) 15.38%,
+    rgba(255, 255, 255, 0.08) 7.69%,
+    rgba(255, 255, 255, 0.08) 15.38%,
 
-  rgba(255, 0, 0, 0.08) 15.38%,
-  rgba(255, 0, 0, 0.08) 23.07%,
+    rgba(255, 0, 0, 0.08) 15.38%,
+    rgba(255, 0, 0, 0.08) 23.07%,
 
-  rgba(255, 255, 255, 0.08) 23.07%,
-  rgba(255, 255, 255, 0.08) 30.76%,
+    rgba(255, 255, 255, 0.08) 23.07%,
+    rgba(255, 255, 255, 0.08) 30.76%,
 
-  rgba(255, 0, 0, 0.08) 30.76%,
-  rgba(255, 0, 0, 0.08) 38.45%,
+    rgba(255, 0, 0, 0.08) 30.76%,
+    rgba(255, 0, 0, 0.08) 38.45%,
 
-  rgba(255, 255, 255, 0.08) 38.45%,
-  rgba(255, 255, 255, 0.08) 46.14%,
+    rgba(255, 255, 255, 0.08) 38.45%,
+    rgba(255, 255, 255, 0.08) 46.14%,
 
-  rgba(255, 0, 0, 0.08) 46.14%,
-  rgba(255, 0, 0, 0.08) 53.83%,
+    rgba(255, 0, 0, 0.08) 46.14%,
+    rgba(255, 0, 0, 0.08) 53.83%,
 
-  rgba(255, 255, 255, 0.08) 53.83%,
-  rgba(255, 255, 255, 0.08) 61.52%,
+    rgba(255, 255, 255, 0.08) 53.83%,
+    rgba(255, 255, 255, 0.08) 61.52%,
 
-  rgba(255, 0, 0, 0.08) 61.52%,
-  rgba(255, 0, 0, 0.08) 69.21%,
+    rgba(255, 0, 0, 0.08) 61.52%,
+    rgba(255, 0, 0, 0.08) 69.21%,
 
-  rgba(255, 255, 255, 0.08) 69.21%,
-  rgba(255, 255, 255, 0.08) 76.90%,
+    rgba(255, 255, 255, 0.08) 69.21%,
+    rgba(255, 255, 255, 0.08) 76.90%,
 
-  rgba(255, 0, 0, 0.08) 76.90%,
-  rgba(255, 0, 0, 0.08) 84.59%,
+    rgba(255, 0, 0, 0.08) 76.90%,
+    rgba(255, 0, 0, 0.08) 84.59%,
 
-  rgba(255, 255, 255, 0.08) 84.59%,
-  rgba(255, 255, 255, 0.08) 92.28%,
+    rgba(255, 255, 255, 0.08) 84.59%,
+    rgba(255, 255, 255, 0.08) 92.28%,
 
-  rgba(255, 0, 0, 0.08) 92.28%,
-  rgba(255, 0, 0, 0.08) 100%
-);
+    rgba(255, 0, 0, 0.08) 92.28%,
+    rgba(255, 0, 0, 0.08) 100%
+  );
+
   pointer-events: none;
   z-index: -2;
-
-@keyframes flag-wave {
-  0%   { transform: translateY(0px) scaleY(1); }
-  50%  { transform: translateY(2px) scaleY(1.01); }
-  100% { transform: translateY(0px) scaleY(1); }
-}
+  animation: flag-wave 6s ease-in-out infinite;
 }
 
 @keyframes flag-wave {
@@ -103,16 +95,8 @@ background: linear-gradient(
     transform: translateX(0px);
   }
 
-  25% {
-    transform: translateX(6px);
-  }
-
   50% {
     transform: translateX(12px);
-  }
-
-  75% {
-    transform: translateX(6px);
   }
 
   100% {
@@ -149,8 +133,7 @@ background: linear-gradient(
       rgba(250,245,225,.04)
     );
 
-  border:
-    1px solid rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.15);
 }
 
 .challenge strong {
@@ -202,17 +185,10 @@ button:hover {
 ======================================== */
 
 .stamp {
-  background:
-    rgba(255,255,255,.05);
-
-  border:
-    2px solid #d4af37;
-
-  color:
-    #d4af37;
-
+  background: rgba(255,255,255,.05);
+  border: 2px solid #d4af37;
+  color: #d4af37;
   text-transform: uppercase;
-
   font-weight: bold;
 }
 
@@ -235,14 +211,12 @@ button:hover {
 
 /* ========================================
    STAR BACKGROUND ANIMATION
-   Used by startStars()
 ======================================== */
 
 .star {
   position: absolute;
 
   background: white;
-
   border-radius: 50%;
 
   opacity: 0.25;
@@ -251,8 +225,7 @@ button:hover {
     0 0 4px white,
     0 0 8px white;
 
-  animation:
-    twinkle 4s ease-in-out infinite alternate;
+  animation: twinkle 4s ease-in-out infinite alternate;
 }
 
 @keyframes twinkle {
@@ -267,7 +240,6 @@ button:hover {
 
 /* ========================================
    FIREWORKS
-   Used by launchFireworks()
 ======================================== */
 
 .firework-particle {
@@ -284,8 +256,7 @@ button:hover {
     0 0 6px currentColor,
     0 0 12px currentColor;
 
-  animation:
-    explode 2s ease-out forwards;
+  animation: explode 2s ease-out forwards;
 }
 
 @keyframes explode {
@@ -310,7 +281,7 @@ button:hover {
 }
 
 /* ========================================
-	RED / WHITE / BLUE GLOW
+   RED / WHITE / BLUE GLOW
 ======================================== */
 
 .firework-particle:nth-child(3n) {
