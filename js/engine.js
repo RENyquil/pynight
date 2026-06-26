@@ -5,9 +5,39 @@ let pyodideReady = null;
 
 async function getPyodideInstance() {
   if (!pyodideReady) {
-    pyodideReady = loadPyodide(); // Provided by pyodide.js
+    pyodideReady = loadPyodide();
   }
   return await pyodideReady;
+}
+
+// ----------------------
+// Theme Animation Helpers
+// ----------------------
+function startThemeAnimation(template) {
+  const THEME_ANIMATIONS = {
+    matrix: "matrix-rain",
+    diehard: "snow",
+    america: "america",
+    jaws: null,
+    unthemed: null
+  };
+
+  const animation = THEME_ANIMATIONS[template];
+
+  if (animation && window.startAnimation) {
+    requestAnimationFrame(() => {
+      window.startAnimation(animation);
+    });
+  }
+}
+
+function triggerSuccessAnimation() {
+  if (window.launchFireworks) {
+    window.launchFireworks({
+      burstCount: 4,
+      centeredOnOutput: true
+    });
+  }
 }
 
 // ----------------------
@@ -18,20 +48,25 @@ async function loadChallenge() {
   const challengeId = params.get("challenge");
 
   if (!challengeId) {
-    document.body.innerHTML = "<h2 style='color:red'>❌ No challenge specified in URL.</h2>";
+    document.body.innerHTML =
+      "<h2 style='color:red'>❌ No challenge specified in URL.</h2>";
     return;
   }
 
   let challenges;
+
   try {
     const res = await fetch("challenges.json");
     challenges = await res.json();
   } catch (e) {
-    document.body.innerHTML = "<h2 style='color:red'>❌ Failed to load challenges.json</h2>";
+    document.body.innerHTML =
+      "<h2 style='color:red'>❌ Failed to load challenges.json</h2>";
     return;
   }
 
-  const c = Array.isArray(challenges) ? challenges.find(ch => ch.id === challengeId) : null;
+  const c = Array.isArray(challenges)
+    ? challenges.find(ch => ch.id === challengeId)
+    : null;
 
   if (!c) {
     document.body.innerHTML = `
@@ -42,75 +77,73 @@ async function loadChallenge() {
   }
 
   // ----------------------
-  // Load Template CSS (with dynamic validation)
+  // Load Template CSS
   // ----------------------
   let templates = [];
+
   try {
-    const templateListURL = new URL("templates/template_list.json", document.baseURI);
+    const templateListURL = new URL(
+      "templates/template_list.json",
+      document.baseURI
+    );
+
     const res = await fetch(templateListURL);
     templates = await res.json();
   } catch {
-    console.warn("⚠️ Failed to load template_list.json, falling back to unthemed");
+    console.warn(
+      "⚠️ Failed to load template_list.json, falling back to unthemed"
+    );
   }
-  
+
   const template =
     typeof c.template === "string" && templates.includes(c.template)
       ? c.template
       : "unthemed";
 
-  document.getElementById("theme-css").href =
-    new URL(`templates/${template}.css`, document.baseURI).href;
+  const themeCss = document.getElementById("theme-css");
 
-  // Sync theme with animation system
+  themeCss.href = new URL(`templates/${template}.css`, document.baseURI).href;
+
   document.body.dataset.theme = template;
-  
-  // Trigger animation
-  const THEME_ANIMATIONS = {
-    matrix: "matrix-rain",
-    diehard: "snow",
-	america: "stars",
-    jaws: null
-  };
-  
-  const animation = THEME_ANIMATIONS[template];
-  
-  if (animation && window.startAnimation) {
-    requestAnimationFrame(() => {
-      window.startAnimation(animation);
-    });
-  }
-  
+
+  // Start background animation after theme stylesheet is attached.
+  startThemeAnimation(template);
+
   // ----------------------
   // Load Challenge Text
   // ----------------------
-  document.getElementById("challenge-description").textContent = c.challenge_description;
-  document.getElementById("challenge-stamp").textContent = c.challenge_stamp;
+  document.getElementById("challenge-description").textContent =
+    c.challenge_description || "";
 
-  // Tasks
+  document.getElementById("challenge-stamp").textContent =
+    c.challenge_stamp || "";
+
   const taskList = document.getElementById("challenge-tasks");
   taskList.innerHTML = "";
+
   (c.tasks || []).forEach(t => {
     const li = document.createElement("li");
     li.textContent = t;
     taskList.appendChild(li);
   });
 
-  // Example
   document.getElementById("challenge-example").textContent = c.example || "";
 
-  // Starter code
   Editor.setValue(c.starter_code || "");
 
   // ----------------------
   // Setup challenge variables
   // ----------------------
-  window.__SETUP_CODE__       = c.setup_code || "";
-  window.__TEST_CODE__        = c.test_code || "output"; // default to last expression
-  window.__FLAG__             = c.flag || "";
-  window.__REQUIRED_TERMS__   = c.required_terms || [];
-  window.__FORBIDDEN_TERMS__  = c.forbidden_terms || [];
+  window.__SETUP_CODE__ = c.setup_code || "";
+  window.__TEST_CODE__ = c.test_code || "output";
+  window.__FLAG__ = c.flag || "";
+  window.__REQUIRED_TERMS__ = c.required_terms || [];
+  window.__FORBIDDEN_TERMS__ = c.forbidden_terms || [];
+  window.__CURRENT_TEMPLATE__ = template;
 
+  // ----------------------
   // Handle expected output
+  // ----------------------
   if (c.expected) {
     if (typeof c.expected === "string" && c.expected.startsWith("assets/")) {
       try {
@@ -132,23 +165,22 @@ async function loadChallenge() {
 // Run User Code
 // ----------------------
 async function runCode() {
-const userCode = Editor.getValue();
+  const userCode = Editor.getValue();
   const outputEl = document.getElementById("output");
 
-  outputEl.value = ""; // clear previous output
+  outputEl.value = "";
 
   try {
     const pyodide = await getPyodideInstance();
 
     // ----------------------
-    // Load setup_code (support external file paths)
+    // Load setup_code
     // ----------------------
     let setupCode = window.__SETUP_CODE__ || "";
 
-	// If setup_code is an array, join into Python code
-	if (Array.isArray(setupCode)) {
-	  setupCode = setupCode.join("\n");
-	}
+    if (Array.isArray(setupCode)) {
+      setupCode = setupCode.join("\n");
+    }
 
     const fileAssignRegex = /=\s*"(.*?)"/g;
     const matches = [...setupCode.matchAll(fileAssignRegex)];
@@ -156,13 +188,23 @@ const userCode = Editor.getValue();
     for (const match of matches) {
       const fullMatch = match[0];
       const filePath = match[1];
+
       try {
         const res = await fetch(filePath);
-        let content = await res.text();
-        // Use triple quotes for multiline Python strings
-        setupCode = setupCode.replace(fullMatch, `= """${content}"""`);
+        const content = await res.text();
+
+        const escapedContent = content
+          .replace(/\\/g, "\\\\")
+          .replace(/"""/g, '\\"\\"\\"');
+
+        setupCode = setupCode.replace(
+          fullMatch,
+          `= """${escapedContent}"""`
+        );
       } catch {
-        console.warn(`Failed to load file ${filePath}, keeping original string`);
+        console.warn(
+          `Failed to load file ${filePath}, keeping original string`
+        );
       }
     }
 
@@ -177,23 +219,22 @@ const userCode = Editor.getValue();
     // Check forbidden terms
     // ----------------------
     const userCodeLower = userCode.toLowerCase();
-    let violatedForbidden = false;
+
     for (const term of window.__FORBIDDEN_TERMS__ || []) {
       if (term && userCodeLower.includes(term.toLowerCase())) {
         outputEl.value = `❌ Forbidden term used: "${term}"`;
-        violatedForbidden = true;
-        break;
+        return;
       }
     }
-    if (violatedForbidden) return;
 
     // ----------------------
     // Check required terms
     // ----------------------
     let missingRequired = false;
+
     for (const term of window.__REQUIRED_TERMS__ || []) {
       if (term && !userCodeLower.includes(term.toLowerCase())) {
-        missingRequired = true; // silent fail, do not output
+        missingRequired = true;
         break;
       }
     }
@@ -204,41 +245,40 @@ const userCode = Editor.getValue();
     await pyodide.runPythonAsync(userCode);
 
     // ----------------------
-    // Run test code and capture output
+    // Run test code
     // ----------------------
-    let result = await pyodide.runPythonAsync(window.__TEST_CODE__ || "output = py_night()\noutput");
-    
+    const result = await pyodide.runPythonAsync(
+      window.__TEST_CODE__ || "output"
+    );
+
     // ----------------------
-    // Normalize line endings for comparison
+    // Normalize output
     // ----------------------
-    const normalize = str => str.replace(/\r\n/g,'\n').trim();
-    const normalizedResult = normalize(result.toString());
+    const normalize = str =>
+      String(str ?? "")
+        .replace(/\r\n/g, "\n")
+        .trim();
+
+    const normalizedResult = normalize(result);
     const normalizedExpected = normalize(window.__EXPECTED__);
 
     // ----------------------
     // Compare result
     // ----------------------
-  if (!missingRequired &&
-      !violatedForbidden &&
-      normalizedResult === normalizedExpected) {
+    if (!missingRequired && normalizedResult === normalizedExpected) {
+      outputEl.value = `✅ SUCCESS\n${window.__FLAG__}`;
 
-    outputEl.value =
-      `✅ SUCCESS\n${window.__FLAG__}`;
-
-    if (window.launchFireworks) {
-      window.launchFireworks();
-    }
+      triggerSuccessAnimation();
     } else {
-      // Show result for debugging, unless it's a successful flag
       outputEl.value = `▶️ Python Output:\n${normalizedResult}`;
     }
-
   } catch (err) {
     outputEl.value = "⚠️ Error while running code:\n" + err;
   }
 }
 
 window.runCode = runCode;
+
 // ----------------------
 // Initialize
 // ----------------------
