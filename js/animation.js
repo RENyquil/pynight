@@ -240,4 +240,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.startAnimation = startAnimation;
+  window.launchFireworks = launchFireworks;
 });
