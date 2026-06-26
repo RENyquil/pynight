@@ -225,6 +225,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (dramatic) {
             particle.classList.add("victory-firework");
+
+            // Make victory sparks solid glowing red/white/blue immediately.
+            const victoryColors = ["#ff1f1f", "#ffffff", "#2f6bff"];
+            const color = victoryColors[i % victoryColors.length];
+            
+            particle.style.backgroundColor = color;
+            particle.style.color = color;
+            particle.style.opacity = "1";
+            particle.style.boxShadow = `
+              0 0 8px ${color},
+              0 0 18px ${color},
+              0 0 32px ${color},
+              0 0 52px ${color}
+            `;
           }
 
           const angle = (Math.PI * 2 * i) / PARTICLES;
