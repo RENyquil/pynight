@@ -1,0 +1,326 @@
+/* ========================================
+   AMERICA / FOURTH OF JULY THEME
+======================================== */
+
+:root {
+  /* ===== BACKGROUND ===== */
+  --radial-highlight: rgba(255, 0, 0, 0.12);
+  --linear-gradient-top: #0b1736;
+  --linear-gradient-bottom: #050b18;
+
+  /* ===== THEME CONTENT ===== */
+  --theme-image: url("../assets/american_flag.png");
+  --theme-main: "AMERICA!";
+  --theme-sub: "Stars, Stripes, and Python Scripts";
+  --theme-tagline: "\"It's in our code.\"";
+
+  /* ===== COLORS ===== */
+  --highlight-primary: #ff3b3b;
+  --highlight-secondary: #6ea8ff;
+
+  --theme-sub-color: #ffffff;
+
+  --text-main: #ffffff;
+  --text-accent: #8cb8ff;
+
+  --panel-bg: rgba(8, 18, 45, 0.55);
+  --panel-border: rgba(255, 255, 255, 0.18);
+}
+
+/* ========================================
+   BODY
+======================================== */
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ========================================
+   VERY SUBTLE WAVING FLAG OVERLAY
+======================================== */
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+background: linear-gradient(
+  to bottom,
+
+  rgba(255, 0, 0, 0.08) 0%,
+  rgba(255, 0, 0, 0.08) 7.69%,
+
+  rgba(255, 255, 255, 0.08) 7.69%,
+  rgba(255, 255, 255, 0.08) 15.38%,
+
+  rgba(255, 0, 0, 0.08) 15.38%,
+  rgba(255, 0, 0, 0.08) 23.07%,
+
+  rgba(255, 255, 255, 0.08) 23.07%,
+  rgba(255, 255, 255, 0.08) 30.76%,
+
+  rgba(255, 0, 0, 0.08) 30.76%,
+  rgba(255, 0, 0, 0.08) 38.45%,
+
+  rgba(255, 255, 255, 0.08) 38.45%,
+  rgba(255, 255, 255, 0.08) 46.14%,
+
+  rgba(255, 0, 0, 0.08) 46.14%,
+  rgba(255, 0, 0, 0.08) 53.83%,
+
+  rgba(255, 255, 255, 0.08) 53.83%,
+  rgba(255, 255, 255, 0.08) 61.52%,
+
+  rgba(255, 0, 0, 0.08) 61.52%,
+  rgba(255, 0, 0, 0.08) 69.21%,
+
+  rgba(255, 255, 255, 0.08) 69.21%,
+  rgba(255, 255, 255, 0.08) 76.90%,
+
+  rgba(255, 0, 0, 0.08) 76.90%,
+  rgba(255, 0, 0, 0.08) 84.59%,
+
+  rgba(255, 255, 255, 0.08) 84.59%,
+  rgba(255, 255, 255, 0.08) 92.28%,
+
+  rgba(255, 0, 0, 0.08) 92.28%,
+  rgba(255, 0, 0, 0.08) 100%
+);
+  pointer-events: none;
+  z-index: -2;
+
+@keyframes flag-wave {
+  0%   { transform: translateY(0px) scaleY(1); }
+  50%  { transform: translateY(2px) scaleY(1.01); }
+  100% { transform: translateY(0px) scaleY(1); }
+}
+}
+
+@keyframes flag-wave {
+  0% {
+    transform: translateX(0px);
+  }
+
+  25% {
+    transform: translateX(6px);
+  }
+
+  50% {
+    transform: translateX(12px);
+  }
+
+  75% {
+    transform: translateX(6px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+/* ========================================
+   HEADER STYLING
+======================================== */
+
+.title {
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.15),
+    0 0 20px rgba(110,168,255,0.25);
+}
+
+.title span {
+  color: var(--highlight-primary);
+}
+
+.sub {
+  color: var(--theme-sub-color);
+}
+
+/* ========================================
+   PANELS
+======================================== */
+
+.card {
+  background:
+    linear-gradient(
+      rgba(250,245,225,.08),
+      rgba(250,245,225,.04)
+    );
+
+  border:
+    1px solid rgba(255,255,255,.15);
+}
+
+.challenge strong {
+  color: var(--highlight-primary);
+}
+
+/* ========================================
+   EDITOR + OUTPUT
+======================================== */
+
+#editor,
+#output {
+  background: #020611;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+#output {
+  color: #8cb8ff;
+}
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+button {
+  background:
+    linear-gradient(
+      180deg,
+      #183a82,
+      #0c1c44
+    );
+
+  border: 1px solid rgba(255,255,255,0.18);
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 12px rgba(110,168,255,0.35);
+}
+
+/* ========================================
+   STAMP
+======================================== */
+
+.stamp {
+  background:
+    rgba(255,255,255,.05);
+
+  border:
+    2px solid #d4af37;
+
+  color:
+    #d4af37;
+
+  text-transform: uppercase;
+
+  font-weight: bold;
+}
+
+/* ========================================
+   ANIMATION CONTAINER
+======================================== */
+
+#animation-container {
+  position: fixed;
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  pointer-events: none;
+  overflow: hidden;
+
+  z-index: 999;
+}
+
+/* ========================================
+   STAR BACKGROUND ANIMATION
+   Used by startStars()
+======================================== */
+
+.star {
+  position: absolute;
+
+  background: white;
+
+  border-radius: 50%;
+
+  opacity: 0.25;
+
+  box-shadow:
+    0 0 4px white,
+    0 0 8px white;
+
+  animation:
+    twinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.15;
+  }
+
+  to {
+    opacity: 0.85;
+  }
+}
+
+/* ========================================
+   FIREWORKS
+   Used by launchFireworks()
+======================================== */
+
+.firework-particle {
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  opacity: 1;
+
+  box-shadow:
+    0 0 6px currentColor,
+    0 0 12px currentColor;
+
+  animation:
+    explode 2s ease-out forwards;
+}
+
+@keyframes explode {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translate(
+        calc(var(--dx) * 1px),
+        calc(var(--dy) * 1px)
+      );
+
+    opacity: 0;
+  }
+}
+
+/* ========================================
+	RED / WHITE / BLUE GLOW
+======================================== */
+
+.firework-particle:nth-child(3n) {
+  color: #ff3b3b;
+}
+
+.firework-particle:nth-child(3n+1) {
+  color: #ffffff;
+}
+
+.firework-particle:nth-child(3n+2) {
+  color: #4d79ff;
+}
