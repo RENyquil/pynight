@@ -29,23 +29,21 @@ document.addEventListener("DOMContentLoaded", () => {
     return text.charAt(Math.floor(Math.random() * text.length));
   }
 
-  function getFireworkTargetArea() {
-    const output = document.getElementById("output");
+  function getFireworkTargetArea(mode = "ambient") {
+    if (mode === "victory") {
+      const output = document.getElementById("output");
 
-    if (output) {
-      return output.getBoundingClientRect();
+      if (output) {
+        return output.getBoundingClientRect();
+      }
     }
 
-    const challengeArea = document.querySelector(".card.challenge");
-    if (challengeArea) {
-      return challengeArea.getBoundingClientRect();
-    }
-
+    // Ambient America fireworks stay near the top of the screen.
     return {
-      left: window.innerWidth * 0.25,
-      top: window.innerHeight * 0.55,
-      width: window.innerWidth * 0.5,
-      height: window.innerHeight * 0.25
+      left: window.innerWidth * 0.08,
+      top: window.innerHeight * 0.05,
+      width: window.innerWidth * 0.84,
+      height: window.innerHeight * 0.28
     };
   }
 
@@ -166,17 +164,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ----------------------
-  // AMERICA FIREWORKS + STARS
+  // AMERICA STARS + FIREWORKS
   // ----------------------
   function startAmerica() {
     clearContainer();
 
     startStars();
-    launchFireworks();
+
+    launchFireworks({
+      mode: "ambient",
+      burstCount: 1
+    });
 
     fireworkInterval = setInterval(() => {
-      launchFireworks();
-    }, 1200);
+      launchFireworks({
+        mode: "ambient",
+        burstCount: 1
+      });
+    }, 1700);
   }
 
   function startStars() {
@@ -198,31 +203,46 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function launchFireworks() {
-    const target = getFireworkTargetArea();
+  function launchFireworks(options = {}) {
+    const mode = options.mode || "ambient";
+    const burstCount = options.burstCount || 1;
+    const dramatic = mode === "victory";
 
-    const x = target.left + target.width * (0.25 + Math.random() * 0.5);
-    const y = target.top + target.height * (0.15 + Math.random() * 0.7);
-
-    const PARTICLES = 42;
-
-    for (let i = 0; i < PARTICLES; i++) {
-      const particle = document.createElement("div");
-      particle.classList.add("firework-particle");
-
-      const angle = (Math.PI * 2 * i) / PARTICLES;
-      const distance = 55 + Math.random() * 85;
-
-      particle.style.left = `${x}px`;
-      particle.style.top = `${y}px`;
-      particle.style.setProperty("--dx", Math.cos(angle) * distance);
-      particle.style.setProperty("--dy", Math.sin(angle) * distance);
-
-      container.appendChild(particle);
-
+    for (let burst = 0; burst < burstCount; burst++) {
       setTimeout(() => {
-        particle.remove();
-      }, 2000);
+        const target = getFireworkTargetArea(mode);
+
+        const x = target.left + target.width * (0.15 + Math.random() * 0.7);
+        const y = target.top + target.height * (0.15 + Math.random() * 0.7);
+
+        const PARTICLES = dramatic ? 95 : 42;
+        const MIN_DISTANCE = dramatic ? 90 : 55;
+        const MAX_DISTANCE = dramatic ? 190 : 85;
+
+        for (let i = 0; i < PARTICLES; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("firework-particle");
+
+          if (dramatic) {
+            particle.classList.add("victory-firework");
+          }
+
+          const angle = (Math.PI * 2 * i) / PARTICLES;
+          const distance =
+            MIN_DISTANCE + Math.random() * (MAX_DISTANCE - MIN_DISTANCE);
+
+          particle.style.left = `${x}px`;
+          particle.style.top = `${y}px`;
+          particle.style.setProperty("--dx", Math.cos(angle) * distance);
+          particle.style.setProperty("--dy", Math.sin(angle) * distance);
+
+          container.appendChild(particle);
+
+          setTimeout(() => {
+            particle.remove();
+          }, dramatic ? 2800 : 2000);
+        }
+      }, burst * 280);
     }
   }
 
